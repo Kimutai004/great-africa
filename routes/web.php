@@ -14,5 +14,42 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 });
+
+Route::get('/about', function () {
+    return view('pages.about');
+});
+
+Route::get('/programs', function () {
+    return view('pages.programs');
+});
+
+Route::get('/get-involved', function () {
+    return view('pages.get-involved');
+});
+
+Route::get('/impact', function () {
+    return view('pages.impact');
+});
+
+Route::get('/events', function () {
+    return view('pages.events');
+});
+
+Route::get('/blog', function () {
+    return view('pages.blog');
+});
+
+Route::get('/contact', function () {
+    return view('pages.contact');
+});
+
+Route::get('/donate', function () {
+    return view('pages.donate');
+});
+
+Route::fallback(function () {
+    return response()->view('pages.404', [], 404);
+});
+
