@@ -4,10 +4,14 @@
 
 @section('content')
 <section class="section" aria-labelledby="contact-title">
-  <h1 class="section-title" id="contact-title">Contact</h1>
-  <p class="section-lead" style="max-width:75ch;">
-    Reach out to Great Africa about partnerships, volunteer opportunities, program support, or community enquiries.
-  </p>
+  <div class="page-banner">
+    <div class="section">
+      <h1 class="section-title" id="contact-title">Contact</h1>
+      <p class="section-lead" style="max-width:75ch;">
+        Reach out to Great Africa about partnerships, volunteer opportunities, program support, or community enquiries.
+      </p>
+    </div>
+  </div>
 
   <div class="split" style="margin-top:18px;">
     <div class="card">
@@ -80,7 +84,7 @@
           <input id="contact-news-email" name="email" type="email" required placeholder="you@example.com" />
         </div>
         <div class="form-actions">
-          <button class="btn btn-secondary" type="submit">Subscribe</button>
+          <button class="btn btn-primary" type="submit">Subscribe</button>
         </div>
       </form>
     </div>

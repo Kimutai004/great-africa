@@ -2151,3 +2151,51 @@ a {
         font-size: 2rem;
     }
 }
+
+/* =========================================
+   PAGE BANNER (FULL WIDTH + NARROW HERO STRIP)
+========================================= */
+.page-banner {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    background: url('/images/hero 1.jpg') center/cover no-repeat;
+    color: white;
+
+    /* 👇 makes it narrow */
+    padding: 3.5rem 0;
+
+    display: flex;
+    align-items: center;
+}
+
+/* dark overlay */
+.page-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.45)
+    );
+}
+
+/* content wrapper */
+.page-banner-inner {
+    position: relative;
+    z-index: 2;
+    width: min(100% - 2rem, var(--max-width));
+    margin-inline: auto;
+}
+
+/* text styling */
+.page-banner .section-title {
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.page-banner .section-lead {
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 75ch;
+}

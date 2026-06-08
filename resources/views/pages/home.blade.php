@@ -109,12 +109,6 @@
         improve livelihoods and protect the environment.
       </p>
     </div>
-    <div style="display:flex;gap:12px;align-items:flex-start;justify-content:flex-end;flex-wrap:wrap;">
-      <span class="badge">Soil health & sustainable farming</span>
-      <span class="badge">Water & watershed stewardship</span>
-      <span class="badge">Conservation & restoration</span>
-      <span class="badge">Food security & resilience</span>
-    </div>
   </div>
 
   <div class="grid-3" style="margin-top:18px;">
@@ -130,11 +124,23 @@
       <h3>Youth & Women Empowerment</h3>
       <p>Mentorship, leadership, and skills that expand economic opportunities and strengthen community well-being.</p>
     </div>
+    <div class="card">
+      <h3>Soil health & sustainable farming</h3>
+      <p>Training and support for resilient farming practices that help communities adapt to changing weather.</p>
+    </div>
+    <div class="card">
+      <h3>Water & watershed stewardship</h3>
+      <p>Community-based approaches to protect landscapes, restore ecosystems, and manage natural resources sustainably.</p>
+    </div>
+    <div class="card">
+      <h3>Food security & resilience</h3>
+      <p>Mentorship, leadership, and skills that expand economic opportunities and strengthen community well-being.</p>
+    </div>
   </div>
 
   <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
     <a class="btn btn-secondary" href="/programs">View all programs</a>
-    <a class="btn btn-ghost" href="/impact">See impact stories</a>
+    <a class="btn btn-primary" href="/impact">See impact stories</a>
   </div>
 </section>
 
