@@ -290,48 +290,56 @@
 
         (function () {
 
-            const toggle =
-                document.getElementById('mobileToggle');
-
-            const drawer =
-                document.getElementById('mobileDrawer');
-
+            const toggle = document.getElementById('mobileToggle');
+            const drawer = document.getElementById('mobileDrawer');
             if (!toggle || !drawer) return;
 
+            const links = drawer.querySelectorAll('a');
+            let lastFocused = null;
+
+            const openDrawer = () => {
+                lastFocused = document.activeElement;
+                drawer.classList.add('open');
+                toggle.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+
+                const firstLink = links[0];
+                if (firstLink) firstLink.focus();
+            };
+
+            const closeDrawer = () => {
+                drawer.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+
+                if (lastFocused && typeof lastFocused.focus === 'function') {
+                    lastFocused.focus();
+                }
+            };
+
             toggle.addEventListener('click', () => {
-
-                drawer.classList.toggle('open');
-
-                const expanded =
-                    toggle.getAttribute('aria-expanded') === 'true';
-
-                toggle.setAttribute(
-                    'aria-expanded',
-                    !expanded
-                );
-
+                const isOpen = drawer.classList.contains('open');
+                if (isOpen) closeDrawer();
+                else openDrawer();
             });
 
-            drawer
-                .querySelectorAll('a')
-                .forEach(link => {
+            links.forEach(link => {
+                link.addEventListener('click', () => closeDrawer());
+            });
 
-                    link.addEventListener('click', () => {
+            // Click outside drawer panel closes it
+            drawer.addEventListener('click', (e) => {
+                if (e.target === drawer) closeDrawer();
+            });
 
-                        drawer.classList.remove('open');
-
-                        toggle.setAttribute(
-                            'aria-expanded',
-                            'false'
-                        );
-
-                    });
-
-                });
-
+            document.addEventListener('keydown', (e) => {
+                if (!drawer.classList.contains('open')) return;
+                if (e.key === 'Escape') closeDrawer();
+            });
         })();
 
     </script>
+
 
 </body>
 </html>
