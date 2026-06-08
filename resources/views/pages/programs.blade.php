@@ -3,54 +3,83 @@
 @section('title','Programs / Projects | Great Africa')
 
 @section('content')
-<section class="section" aria-labelledby="programs-title">
-  <h1 class="section-title" id="programs-title">Programs / Projects</h1>
-  <p class="section-lead" style="max-width:75ch;">
-    Our work combines sustainable agriculture, environmental conservation, and human empowerment.
-    Explore program areas where we support communities in Kenya and beyond.
-  </p>
 
-  <div class="grid-3" style="margin-top:18px;">
-    <div class="card">
-      <h3>Soil Health & Regenerative Practices</h3>
-      <p>Training on soil conservation, composting, improved farm practices, and resilient crop management.</p>
-    </div>
-    <div class="card">
-      <h3>Water Stewardship & Irrigation Support</h3>
-      <p>Community education on watershed protection, efficient water use, and drought resilience.</p>
-    </div>
-    <div class="card">
-      <h3>Conservation & Natural Resource Management</h3>
-      <p>Restoration activities and community-led approaches to protect land, biodiversity, and water sources.</p>
-    </div>
-  </div>
+<!-- NARROW HERO -->
+<section class="page-hero">
+    <div class="container">
 
-  <div class="grid-3" style="margin-top:14px;">
-    <div class="card">
-      <h3>Youth Empowerment & Skills</h3>
-      <p>Mentorship and learning opportunities for youth in climate-smart agriculture and conservation work.</p>
-    </div>
-    <div class="card">
-      <h3>Women Empowerment & Livelihoods</h3>
-      <p>Strengthening women-led groups with leadership support and pathways to sustainable livelihoods.</p>
-    </div>
-    <div class="card">
-      <h3>Food Security & Community Resilience</h3>
-      <p>Supporting practical solutions that improve household stability and long-term resilience.</p>
-    </div>
-  </div>
+        <div class="kicker">
+            <span class="dot"></span>
+            Our impact areas • Community-led development
+        </div>
 
-  <div class="card" style="margin-top:18px;">
-    <h3>Work with us</h3>
-    <p>
-      If you are a partner, donor, or institution interested in collaborating, reach out through our contact page.
-      We welcome projects aligned with sustainable agriculture, conservation, and empowerment.
-    </p>
-    <div class="form-actions">
-      <a class="btn btn-primary" href="/contact">Partner with Great Africa</a>
-      <a class="btn btn-secondary" href="/donate">Support our programs</a>
+        <h1 class="page-title">Programs & Projects</h1>
+
+        <p class="page-lead">
+            We combine sustainable agriculture, environmental conservation,
+            and community empowerment to build long-term resilience across Kenya and Africa.
+        </p>
+
     </div>
-  </div>
 </section>
-@endsection
 
+<!-- CONTENT -->
+<section class="section">
+
+    <div class="grid-3">
+
+        <div class="card">
+            <h3>Soil Health & Regenerative Practices</h3>
+            <p>Training on soil conservation, composting, improved farming systems, and regenerative agriculture.</p>
+        </div>
+
+        <div class="card">
+            <h3>Water Stewardship & Irrigation</h3>
+            <p>Community-based water management, watershed protection, and drought resilience solutions.</p>
+        </div>
+
+        <div class="card">
+            <h3>Natural Resource Conservation</h3>
+            <p>Restoration of ecosystems, biodiversity protection, and sustainable land management practices.</p>
+        </div>
+
+    </div>
+
+    <div class="grid-3" style="margin-top:18px;">
+
+        <div class="card">
+            <h3>Youth Empowerment</h3>
+            <p>Skills training, mentorship, and opportunities in climate-smart agriculture and leadership.</p>
+        </div>
+
+        <div class="card">
+            <h3>Women Empowerment</h3>
+            <p>Supporting women-led groups with tools, training, and pathways to sustainable livelihoods.</p>
+        </div>
+
+        <div class="card">
+            <h3>Food Security Programs</h3>
+            <p>Improving household resilience through sustainable food systems and farming innovation.</p>
+        </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="program-cta">
+
+        <h2>Work with Great Africa</h2>
+
+        <p>
+            Partner with us to scale sustainable agriculture, conservation, and community empowerment projects.
+        </p>
+
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact">Partner With Us</a>
+            <a class="btn btn-secondary" href="/donate">Support Programs</a>
+        </div>
+
+    </div>
+
+</section>
+
+@endsection

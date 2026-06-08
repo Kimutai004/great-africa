@@ -1,15 +1,6 @@
-- [ ] Create shared Laravel Blade layout (header with donation button, mobile nav, footer)
-- [ ] Create global styles (earthy palette, typography, responsive layout)
-- [ ] Create page templates: Home, About Us, Programs/Projects, Get Involved, Impact/Stories, Events, Blog/News, Contact
-- [ ] Add volunteer signup form UI + handlers (client-side validation; server routes if needed)
-- [ ] Add contact form UI + handlers
-- [ ] Add newsletter subscription UI + handlers
-- [ ] Add SEO meta tags (title/description, OpenGraph)
-- [ ] Wire navigation between pages and header CTAs (donate, volunteer)
-- [ ] Add event listing section and blog/news listing + detail stubs
-- [x] Run dev server and verify all pages render without errors (manual browser check needed)
+- [x] Update hero markup in resources/views/pages/home.blade.php: remove inline <style> and add hero slideshow background
+- [x] Add slideshow CSS + overlay styles in resources/css/app.css
+- [x] Add minimal JS for slideshow + prefers-reduced-motion handling (in Blade)
+- [ ] Quick visual sanity check (run dev server/build if configured)
 
-
-
-- [ ] Accessibility pass (focus states, labels, contrast)
 

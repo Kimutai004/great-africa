@@ -1,139 +1,337 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>@yield('title', 'Great Africa NGO') </title>
-  <meta name="description" content="Generational Resilience Environment Agriculture Transdevelopment Africa — Great Africa. Sustainable agriculture, climate-smart innovation, conservation, and community-led development in Kenya and Africa." />
+    <title>@yield('title', 'Great Africa NGO')</title>
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="@yield('title', 'Great Africa NGO')" />
-  <meta property="og:description" content="Building climate-smart futures through sustainable agriculture, youth and women empowerment, and environmental conservation." />
-  <meta property="og:image" content="/images/placeholder-og.jpg" />
+    <meta
+        name="description"
+        content="Generational Resilience Environment Agriculture Transdevelopment Africa — Great Africa."
+    />
 
-  <link rel="preconnect" href="https://fonts.bunny.net" />
-  <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="@yield('title', 'Great Africa NGO')" />
+    <meta
+        property="og:description"
+        content="Building climate-smart futures through sustainable agriculture and environmental conservation."
+    />
 
-  @vite(['resources/css/app.css','resources/js/app.js'])
+    <meta property="og:image" content="/images/placeholder-og.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+        href="https://fonts.bunny.net/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    />
+
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
+
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" role="banner">
-    <div class="container">
-      <div class="navbar" aria-label="Primary navigation">
-        <a class="brand" href="/" aria-label="Great Africa home">
-          <div class="brand-mark" aria-hidden="true">GA</div>
-          <div class="brand-title">
-            <strong>Great Africa</strong>
-            <span>Generational Resilience • Kenya & Africa</span>
-          </div>
-        </a>
+    <!-- Skip Link -->
+    <a class="skip-link" href="#main">
+        Skip to content
+    </a>
 
-        <button class="mobile-toggle" type="button" id="mobileToggle" aria-expanded="false" aria-controls="mobileDrawer">
-          <span aria-hidden="true">☰</span>
-          <span class="sr-only" style="position:absolute;left:-9999px">Open menu</span>
-        </button>
+    <!-- =======================================================
+         HEADER
+    ======================================================== -->
+    <header class="site-header">
 
-        <nav class="nav-links" role="navigation" aria-label="Main">
-          <a href="/about">About Us</a>
-          <a href="/programs">Programs / Projects</a>
+        <div class="container">
 
-          <a href="/impact">Impact / Stories</a>
-          <a href="/events">Events</a>
-          <a href="/blog">Blog / News</a>
-          <a href="/get-involved">Get Involved</a>
-          <a href="/contact">Contact</a>
-        </nav>
+            <div class="navbar">
 
+                <!-- BRAND -->
+                <a class="brand" href="/" aria-label="Great Africa Home">
 
+                    <div class="brand-mark">
+                        GA
+                    </div>
 
-        <div class="header-ctas">
-          <a class="btn btn-secondary" href="/get-involved" aria-label="Volunteer with Great Africa">Volunteer</a>
-          <a class="btn btn-primary" href="/donate" aria-label="Donate to Great Africa">Donate</a>
+                    <div class="brand-title">
+                        <strong>Great Africa</strong>
+                        <span>
+                            Climate Resilience • Kenya & Africa
+                        </span>
+                    </div>
+
+                </a>
+
+                <!-- NAVIGATION -->
+                <nav class="nav-links" aria-label="Main Navigation">
+
+                    <a href="/about">
+                        About
+                    </a>
+
+                    <a href="/programs">
+                        Programs
+                    </a>
+
+                    <a href="/impact">
+                        Impact
+                    </a>
+
+                    <a href="/events">
+                        Events
+                    </a>
+
+                    <a href="/blog">
+                        News
+                    </a>
+
+                    <a href="/get-involved">
+                        Get Involved
+                    </a>
+
+                    <a href="/contact">
+                        Contact
+                    </a>
+
+                </nav>
+
+                <!-- CTA -->
+                <div class="header-ctas">
+
+                    <a
+                        class="btn btn-secondary"
+                        href="/get-involved"
+                    >
+                        Volunteer
+                    </a>
+
+                    <a
+                        class="btn btn-primary"
+                        href="/donate"
+                    >
+                        Donate
+                    </a>
+
+                </div>
+
+                <!-- MOBILE TOGGLE -->
+                <button
+                    class="mobile-toggle"
+                    id="mobileToggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="mobileDrawer"
+                >
+                    ☰
+                </button>
+
+            </div>
+
         </div>
-      </div>
 
-      <div class="drawer" id="mobileDrawer" role="navigation" aria-label="Mobile">
+    </header>
+
+    <!-- =======================================================
+         MOBILE DRAWER
+    ======================================================== -->
+    <div
+        class="drawer"
+        id="mobileDrawer"
+    >
+
         <div class="drawer-panel">
-          <div class="drawer-links">
-            <a href="/about">About</a>
-            <a href="/programs">Programs</a>
-            <a href="/impact">Impact</a>
-            <a href="/events">Events</a>
-            <a href="/blog">News</a>
-            <a href="/contact">Contact</a>
-            <a href="/get-involved">Volunteer</a>
-            <a href="/donate">Donate</a>
-          </div>
+
+            <div class="drawer-links">
+
+                <a href="/about">About</a>
+                <a href="/programs">Programs</a>
+                <a href="/impact">Impact</a>
+                <a href="/events">Events</a>
+                <a href="/blog">News</a>
+                <a href="/get-involved">Volunteer</a>
+                <a href="/contact">Contact</a>
+                <a href="/donate">Donate</a>
+
+            </div>
+
         </div>
-      </div>
+
     </div>
-  </header>
 
-  <main id="main" class="container" tabindex="-1" style="padding-top: 18px;">
-    @yield('content')
-  </main>
+    <!-- =======================================================
+         MAIN CONTENT
+    ======================================================== -->
+    <main id="main">
 
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div style="font-weight:900;color:var(--brand-900);font-size:16px;">Great Africa</div>
-          <div class="small" style="margin-top:8px;">Sustainable agriculture, climate-smart innovation, conservation, and community development in Kenya and Africa.</div>
+        @yield('content')
+
+    </main>
+
+    <!-- =======================================================
+         FOOTER
+    ======================================================== -->
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <!-- ABOUT -->
+                <div>
+
+                    <div class="footer-brand">
+                        Great Africa
+                    </div>
+
+                    <p class="footer-text">
+                        Sustainable agriculture, climate-smart innovation,
+                        environmental conservation, and community-led
+                        development across Kenya and Africa.
+                    </p>
+
+                </div>
+
+                <!-- QUICK LINKS -->
+                <div>
+
+                    <h4 class="footer-title">
+                        Quick Links
+                    </h4>
+
+                    <div class="footer-links">
+
+                        <a href="/programs">
+                            Programs
+                        </a>
+
+                        <a href="/impact">
+                            Impact Stories
+                        </a>
+
+                        <a href="/events">
+                            Events
+                        </a>
+
+                        <a href="/blog">
+                            News & Updates
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- CONTACT -->
+                <div>
+
+                    <h4 class="footer-title">
+                        Contact
+                    </h4>
+
+                    <div class="footer-contact">
+
+                        <div>
+                            hello@example.org
+                        </div>
+
+                        <div>
+                            +254 700 000 000
+                        </div>
+
+                        <div>
+                            Nairobi, Kenya
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr class="sep">
+
+            <!-- BOTTOM -->
+            <div class="footer-bottom">
+
+                <div>
+                    © {{ date('Y') }} Great Africa.
+                    All rights reserved.
+                </div>
+
+                <div class="social-links">
+
+                    <a href="#">
+                        Facebook
+                    </a>
+
+                    <a href="#">
+                        Instagram
+                    </a>
+
+                    <a href="#">
+                        X
+                    </a>
+
+                    <a href="#">
+                        YouTube
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
-        <div>
-          <div style="font-weight:900;color:var(--brand-900);">Quick links</div>
-          <div style="display:grid;gap:8px;margin-top:10px;">
-            <a href="/programs">Programs / Projects</a>
-            <a href="/get-involved">Get Involved</a>
-            <a href="/impact">Impact / Stories</a>
-            <a href="/events">Events</a>
-          </div>
-        </div>
-        <div>
-          <div style="font-weight:900;color:var(--brand-900);">Contact</div>
-          <div class="small" style="margin-top:10px;">
-            <div><strong>Email:</strong> hello@example.org</div>
-            <div><strong>Phone:</strong> +254 700 000 000</div>
-            <div><strong>Location:</strong> Nairobi, Kenya</div>
-          </div>
-        </div>
-      </div>
-      <hr class="sep" />
-      <div class="small" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
-        <div>© {{ date('Y') }} Great Africa. All rights reserved.</div>
-        <div style="display:flex;gap:14px;align-items:center;">
-          <a href="#" aria-label="Facebook">Facebook</a>
-          <a href="#" aria-label="Instagram">Instagram</a>
-          <a href="#" aria-label="X">X</a>
-          <a href="#" aria-label="YouTube">YouTube</a>
-        </div>
-      </div>
-    </div>
-  </footer>
 
-  <script>
-    (function(){
-      const toggle=document.getElementById('mobileToggle');
-      const drawer=document.getElementById('mobileDrawer');
-      if(!toggle||!drawer) return;
+    </footer>
 
-      toggle.addEventListener('click', ()=>{
-        const open = drawer.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
+    <!-- =======================================================
+         MOBILE MENU SCRIPT
+    ======================================================== -->
+    <script>
 
-      // close drawer on link click
-      drawer.querySelectorAll('a').forEach(a=>{
-        a.addEventListener('click', ()=>{
-          drawer.classList.remove('open');
-          toggle.setAttribute('aria-expanded','false');
-        });
-      });
-    })();
-  </script>
+        (function () {
+
+            const toggle =
+                document.getElementById('mobileToggle');
+
+            const drawer =
+                document.getElementById('mobileDrawer');
+
+            if (!toggle || !drawer) return;
+
+            toggle.addEventListener('click', () => {
+
+                drawer.classList.toggle('open');
+
+                const expanded =
+                    toggle.getAttribute('aria-expanded') === 'true';
+
+                toggle.setAttribute(
+                    'aria-expanded',
+                    !expanded
+                );
+
+            });
+
+            drawer
+                .querySelectorAll('a')
+                .forEach(link => {
+
+                    link.addEventListener('click', () => {
+
+                        drawer.classList.remove('open');
+
+                        toggle.setAttribute(
+                            'aria-expanded',
+                            'false'
+                        );
+
+                    });
+
+                });
+
+        })();
+
+    </script>
+
 </body>
 </html>
-

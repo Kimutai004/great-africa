@@ -3,48 +3,115 @@
 @section('title','Events | Great Africa')
 
 @section('content')
-<section class="section" aria-labelledby="events-title">
-  <h1 class="section-title" id="events-title">Events</h1>
-  <p class="section-lead" style="max-width:75ch;">
-    Field days, community training sessions, climate-smart workshops, and partner meetings.
-    Add your real event dates, locations, and registration links.
-  </p>
 
-  <div class="grid-3" style="grid-template-columns:repeat(3,minmax(0,1fr)); margin-top:18px;">
-    <div class="card">
-      <h3>Field Day: Soil Health & Regenerative Practices</h3>
-      <p class="small">Date: {{ date('M d, Y', strtotime('+2 weeks')) }}<br/>Location: Nairobi County (placeholder)</p>
-      <p>Hands-on learning on composting, mulching, and soil conservation techniques.</p>
-      <div class="form-actions" style="margin-top:12px;">
-        <a class="btn btn-primary" href="#">Register interest</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Workshop: Water Stewardship & Drought Resilience</h3>
-      <p class="small">Date: {{ date('M d, Y', strtotime('+1 month')) }}<br/>Location: Kenya (placeholder)</p>
-      <p>Community education on watershed protection and practical irrigation efficiency.</p>
-      <div class="form-actions" style="margin-top:12px;">
-        <a class="btn btn-primary" href="#">Request invitation</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Community Forum: Youth & Women in Climate Solutions</h3>
-      <p class="small">Date: {{ date('M d, Y', strtotime('+6 weeks')) }}<br/>Location: Kenya (placeholder)</p>
-      <p>Mentorship, leadership development, and opportunities to connect with programs.</p>
-      <div class="form-actions" style="margin-top:12px;">
-        <a class="btn btn-primary" href="#">Join forum</a>
-      </div>
-    </div>
-  </div>
+<!-- HERO -->
+<section class="page-hero events-hero">
+    <div class="container">
 
-  <div class="card" style="margin-top:18px;">
-    <h3 style="margin-bottom:8px;">Host an event with us</h3>
-    <p class="small">If you are an institution, donor, or partner planning a relevant event, send details through the contact page.</p>
-    <div class="form-actions" style="margin-top:12px;">
-      <a class="btn btn-secondary" href="/contact">Contact Great Africa</a>
-      <a class="btn btn-ghost" href="/programs">View programs</a>
+        <div class="kicker">
+            <span class="dot"></span>
+            Field learning • Community training • Climate action
+        </div>
+
+        <h1 class="page-title">Events</h1>
+
+        <p class="page-lead">
+            Field days, training sessions, workshops, and community forums
+            that bring climate-smart agriculture and conservation to life.
+        </p>
+
     </div>
-  </div>
 </section>
-@endsection
 
+<!-- EVENTS -->
+<section class="section">
+
+    <div class="events-grid">
+
+        <!-- EVENT CARD -->
+        <article class="event-card">
+
+            <div class="event-date">
+                <span class="day">{{ date('d', strtotime('+2 weeks')) }}</span>
+                <span class="month">{{ date('M', strtotime('+2 weeks')) }}</span>
+            </div>
+
+            <div class="event-content">
+                <h3>Field Day: Soil Health & Regenerative Practices</h3>
+
+                <p class="event-meta">📍 Nairobi County</p>
+
+                <p>
+                    Hands-on training on composting, mulching, and soil conservation techniques.
+                </p>
+
+                <a class="event-link" href="#">Register Interest →</a>
+            </div>
+
+        </article>
+
+        <!-- EVENT CARD -->
+        <article class="event-card">
+
+            <div class="event-date">
+                <span class="day">{{ date('d', strtotime('+1 month')) }}</span>
+                <span class="month">{{ date('M', strtotime('+1 month')) }}</span>
+            </div>
+
+            <div class="event-content">
+                <h3>Water Stewardship & Drought Resilience Workshop</h3>
+
+                <p class="event-meta">📍 Kenya</p>
+
+                <p>
+                    Community education on watershed protection and irrigation efficiency.
+                </p>
+
+                <a class="event-link" href="#">Request Invitation →</a>
+            </div>
+
+        </article>
+
+        <!-- EVENT CARD -->
+        <article class="event-card">
+
+            <div class="event-date">
+                <span class="day">{{ date('d', strtotime('+6 weeks')) }}</span>
+                <span class="month">{{ date('M', strtotime('+6 weeks')) }}</span>
+            </div>
+
+            <div class="event-content">
+                <h3>Youth & Women Climate Forum</h3>
+
+                <p class="event-meta">📍 Kenya</p>
+
+                <p>
+                    Mentorship, leadership development, and networking for community innovation.
+                </p>
+
+                <a class="event-link" href="#">Join Forum →</a>
+            </div>
+
+        </article>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="event-cta">
+
+        <h2>Want to host an event with us?</h2>
+
+        <p>
+            We partner with institutions, NGOs, and communities to deliver impactful climate-focused events.
+        </p>
+
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact">Contact Us</a>
+            <a class="btn btn-secondary" href="/programs">View Programs</a>
+        </div>
+
+    </div>
+
+</section>
+
+@endsection

@@ -3,80 +3,101 @@
 @section('title','Great Africa NGO | Building Climate-Smart Agriculture in Kenya & Africa')
 
 @section('content')
-<section class="hero" aria-labelledby="hero-title" style="padding-top: 12px;">
-  <style>
-    /* Keep hero spacing fine under sticky header */
-    .hero{padding-top:8px;}
-  </style>
-  <div style="position:relative;border-radius:24px;padding:22px 0;">
-    @include('partials.hero-gradient')
-    <div class="hero-grid">
-      <div>
-        <div class="kicker"><span class="dot" aria-hidden="true"></span> Climate-smart farming • Youth & women empowerment</div>
-        <h1 id="hero-title">Building Generational Resilience Through Sustainable Agriculture in Kenya & Africa</h1>
-        <p>
-          Great Africa (Generational Resilience Environment Agriculture Transdevelopment Africa) works with communities to protect
-          natural resources, strengthen food security, and accelerate climate-smart innovation—so families, especially youth and
-          women, can thrive.
-        </p>
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero-wrap">
 
-        <div class="hero-actions" role="group" aria-label="Primary calls to action">
-          <a class="btn btn-primary" href="/donate">Donate to support climate-smart agriculture</a>
-          <a class="btn btn-secondary" href="/get-involved">Volunteer with our community programs</a>
-          <a class="btn btn-ghost" href="/programs">Explore our programs</a>
+        <!-- Background Slideshow -->
+        <div class="hero-slideshow" aria-hidden="true">
+            <img class="hero-slide is-active" src="/images/hero 1.jpg" alt="" />
+            <img class="hero-slide" src="/images/Hero 2.jpg" alt="" />
+            <div class="hero-slideshow-overlay"></div>
         </div>
 
-        <div class="stat-grid" role="list" aria-label="Impact highlights">
-          <div class="stat" role="listitem">
-            <strong>Community-led</strong>
-            <span>Programs designed with local farmers, youth, and women groups.</span>
-          </div>
-          <div class="stat" role="listitem">
-            <strong>Climate-smart</strong>
-            <span>Practical innovations for soil health, water stewardship, and resilience.</span>
-          </div>
-          <div class="stat" role="listitem">
-            <strong>Environment first</strong>
-            <span>Conservation and natural resource management at the core.</span>
-          </div>
-          <div class="stat" role="listitem">
-            <strong>Measurable outcomes</strong>
-            <span>Learning, reporting, and continuous improvement across projects.</span>
-          </div>
-        </div>
-      </div>
+        @include('partials.hero-gradient')
 
-      <aside class="hero-card" aria-label="Quick overview">
-        <h2 style="margin:0 0 10px;color:var(--brand-900);font-size:18px;">How you can help</h2>
-        <div class="grid-3" style="grid-template-columns:1fr; gap:10px; margin-top:10px;">
-          <div class="card">
-            <h3>Donate</h3>
-            <p>Fuel farm inputs, training, and conservation activities that strengthen food security.</p>
-            <div style="margin-top:12px;">
-              <a class="btn btn-primary" style="width:100%" href="/donate">Donate now</a>
+        <div class="hero-grid">
+
+            <!-- LEFT CONTENT -->
+            <div class="hero-content">
+
+                <div class="kicker">
+                    <span class="dot"></span>
+                    Climate-smart agriculture • Youth & women empowerment
+                </div>
+
+                <h1 id="hero-title">
+                    Building Climate Resilience and Sustainable Livelihoods Across Africa
+                </h1>
+
+                <p class="hero-lead">
+                    Great Africa (Generational Resilience Environment Agriculture
+                    Transdevelopment Africa) empowers communities through
+                    climate-smart agriculture, environmental conservation,
+                    food security initiatives, and youth-led innovation that
+                    strengthens livelihoods for generations.
+                </p>
+
+                <div class="hero-actions" role="group" aria-label="Primary calls to action">
+                    <a class="btn btn-primary" href="/donate">
+                        Support Our Mission
+                    </a>
+
+                    <a class="btn btn-secondary" href="/get-involved">
+                        Get Involved
+                    </a>
+
+                    <a class="btn btn-ghost hero-btn-light" href="/programs">
+                        Explore Programs
+                    </a>
+                </div>
+
+                <div class="hero-proof">
+                    <span>🌱 Community-led</span>
+                    <span>🌍 Climate-focused</span>
+                    <span>👩 Women & Youth Empowerment</span>
+                </div>
+
             </div>
-          </div>
-          <div class="card">
-            <h3>Volunteer</h3>
-            <p>Support field days, mentorship sessions, and community outreach events.</p>
-            <div style="margin-top:12px;">
-              <a class="btn btn-secondary" style="width:100%" href="/get-involved">Join as a volunteer</a>
+
+            <!-- RIGHT IMPACT CARD -->
+            <div class="impact-card">
+
+                <div class="impact-header">
+                    Our Impact
+                </div>
+
+                <div class="impact-stats">
+
+                    <div class="impact-item">
+                        <strong>10,000+</strong>
+                        <span>Farmers Reached</span>
+                    </div>
+
+                    <div class="impact-item">
+                        <strong>25+</strong>
+                        <span>Communities Served</span>
+                    </div>
+
+                    <div class="impact-item">
+                        <strong>120+</strong>
+                        <span>Youth Groups Engaged</span>
+                    </div>
+
+                    <div class="impact-item">
+                        <strong>50+</strong>
+                        <span>Climate Projects</span>
+                    </div>
+
+                </div>
+
+                <div class="impact-footer">
+                    Together we are creating sustainable communities and protecting natural resources for future generations.
+                </div>
+
             </div>
-          </div>
-          <div class="card">
-            <h3>Partner</h3>
-            <p>Work with us on climate-smart innovation, sustainability, and youth employment.</p>
-            <div style="margin-top:12px;">
-              <a class="btn btn-ghost" style="width:100%" href="/contact">Become a partner</a>
-            </div>
-          </div>
+
         </div>
-        <p class="small" style="margin-top:12px;">
-          Placeholder links used until you share your official donation and contact details.
-        </p>
-      </aside>
     </div>
-  </div>
 </section>
 
 <section class="section" aria-labelledby="programs-overview">
@@ -164,5 +185,27 @@
     </div>
   </div>
 </section>
+
+<script>
+  (function () {
+    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    const slides = document.querySelectorAll('.hero-slide');
+    if (!slides || slides.length < 2) return;
+
+    let idx = 0;
+    const show = (nextIdx) => {
+      slides[idx].classList.remove('is-active');
+      idx = nextIdx;
+      slides[idx].classList.add('is-active');
+    };
+
+    setInterval(() => {
+      const next = (idx + 1) % slides.length;
+      show(next);
+    }, 6500);
+  })();
+</script>
 @endsection
 

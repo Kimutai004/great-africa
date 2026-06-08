@@ -3,45 +3,97 @@
 @section('title','Impact / Stories | Great Africa')
 
 @section('content')
-<section class="section" aria-labelledby="impact-title">
-  <h1 class="section-title" id="impact-title">Impact / Stories</h1>
-  <p class="section-lead" style="max-width:75ch;">
-    Stories from the field show how climate-smart agriculture, conservation, and community empowerment can transform lives.
-    Replace the sample cards with your real initiatives, results, and photos.
-  </p>
 
-  <div class="grid-3" style="margin-top:18px;">
-    <div class="card">
-      <h3>Resilient harvests through soil health</h3>
-      <p>Farmers adopt soil conservation practices to improve productivity and reduce climate risk.</p>
-      <div class="form-actions" style="margin-top:12px;">
-        <a class="btn btn-ghost" href="#">Read story</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Community conservation that protects water sources</h3>
-      <p>Local groups coordinate restoration activities to strengthen watershed health.</p>
-      <div class="form-actions" style="margin-top:12px;">
-        <a class="btn btn-ghost" href="#">Read story</a>
-      </div>
-    </div>
-    <div class="card">
-      <h3>Youth leadership in climate-smart farming</h3>
-      <p>Mentorship and skills build confidence for young people to lead innovation in their communities.</p>
-      <div class="form-actions" style="margin-top:12px;">
-        <a class="btn btn-ghost" href="#">Read story</a>
-      </div>
-    </div>
-  </div>
+<!-- HERO -->
+<section class="page-hero impact-hero">
+    <div class="container">
 
-  <div class="card" style="margin-top:18px;">
-    <h3>Want to share an update?</h3>
-    <p class="small">Use the contact form to send story ideas, photos, or partnership proposals.</p>
-    <div class="form-actions">
-      <a class="btn btn-primary" href="/contact">Contact us</a>
-      <a class="btn btn-secondary" href="/events">See upcoming events</a>
+        <div class="kicker">
+            <span class="dot"></span>
+            Real stories • Real communities • Real impact
+        </div>
+
+        <h1 class="page-title">Impact Stories</h1>
+
+        <p class="page-lead">
+            Stories from the field show how climate-smart agriculture, conservation,
+            and community empowerment are transforming lives across Kenya and Africa.
+        </p>
+
     </div>
-  </div>
 </section>
-@endsection
 
+<!-- STORIES -->
+<section class="section">
+
+    <div class="stories-grid">
+
+        <!-- STORY CARD -->
+        <article class="story-card">
+            <div class="story-image">
+                <img src="/images/stories/soil-health.jpg" alt="Farmers improving soil health">
+                <div class="story-overlay"></div>
+                <span class="story-tag">Agriculture</span>
+            </div>
+
+            <div class="story-content">
+                <h3>Resilient harvests through soil health</h3>
+                <p>Farmers adopt soil conservation practices to improve productivity and reduce climate risk.</p>
+
+                <a class="story-link" href="#">Read story →</a>
+            </div>
+        </article>
+
+        <!-- STORY CARD -->
+        <article class="story-card">
+            <div class="story-image">
+                <img src="/images/stories/water-conservation.jpg" alt="Community water conservation project">
+                <div class="story-overlay"></div>
+                <span class="story-tag">Conservation</span>
+            </div>
+
+            <div class="story-content">
+                <h3>Protecting community water sources</h3>
+                <p>Local groups coordinate restoration activities to strengthen watershed health.</p>
+
+                <a class="story-link" href="#">Read story →</a>
+            </div>
+        </article>
+
+        <!-- STORY CARD -->
+        <article class="story-card">
+            <div class="story-image">
+                <img src="/images/stories/youth-farming.jpg" alt="Youth training in agriculture">
+                <div class="story-overlay"></div>
+                <span class="story-tag">Youth</span>
+            </div>
+
+            <div class="story-content">
+                <h3>Youth leadership in climate-smart farming</h3>
+                <p>Mentorship and skills build confidence for young people to lead innovation in their communities.</p>
+
+                <a class="story-link" href="#">Read story →</a>
+            </div>
+        </article>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="story-cta">
+
+        <h2>Want to share an impact story?</h2>
+
+        <p>
+            Send us updates, photos, or partnership ideas. Your story helps inspire more change.
+        </p>
+
+        <div class="hero-actions">
+            <a class="btn btn-primary" href="/contact">Submit Story</a>
+            <a class="btn btn-secondary" href="/events">View Events</a>
+        </div>
+
+    </div>
+
+</section>
+
+@endsection
