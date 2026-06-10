@@ -10,7 +10,8 @@
         </div>
     </div>
 
-    <form action="/admin/posts" method="POST" style="display:grid; gap:12px;">
+    <form action="/admin/posts" method="POST" enctype="multipart/form-data" style="display:grid; gap:12px;">
+
         @csrf
 
         <div class="admin-card" style="padding:14px;">
@@ -34,9 +35,13 @@
         </div>
 
         <div class="admin-card" style="padding:14px;">
-            <label><strong>Image Path (optional)</strong></label>
-            <input name="image_path" value="{{ old('image_path') }}" placeholder="/images/..." style="width:100%;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.03);color:inherit;outline:none;"/>
+            <label><strong>Upload Image (optional)</strong></label>
+            <input class="form-control" type="file" name="image" accept="image/*" style="width:100%;padding:10px 0;"/>
+            <div style="margin-top:8px; color:rgba(16,185,129,.95); font-weight:800; font-size:12px;">
+                Accepted: JPG/PNG/WebP. This will be uploaded and shown on the blog.
+            </div>
         </div>
+
 
         <div class="admin-card" style="padding:14px;">
             <label><strong>Status</strong></label>

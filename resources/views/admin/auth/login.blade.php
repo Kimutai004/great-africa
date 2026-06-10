@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('admin.layouts.auth')
 
 @section('title','Admin Login')
 
@@ -44,11 +44,6 @@
                     </div>
                 @endif
             </form>
-
-            <div class="admin-card" style="padding:14px; margin-top:14px;">
-                <div style="color:rgba(255,255,255,.68); font-size:13px;">Seeded admin (if you ran seeder):</div>
-                <div style="margin-top:6px; font-weight:700;">admin@greatafrica.test / admin123</div>
-            </div>
         </div>
     </div>
 @endsection

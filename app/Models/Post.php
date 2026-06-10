@@ -3,12 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
         'title',
         'category',
@@ -23,13 +20,10 @@ class Post extends Model
         'published_at' => 'datetime',
     ];
 
+    // Used by BlogPageController
     public function scopePublished($query)
     {
-        return $query
-            ->where('status', 'published')
-            ->whereNotNull('published_at')
-            ->where('published_at', '<=', now())
-            ->orderBy('published_at', 'desc');
+        return $query->where('status', 'published');
     }
 }
 

@@ -36,6 +36,8 @@ use App\Http\Controllers\Public\VolunteerController;
 
 Route::get('/events', [EventsPageController::class, 'index']);
 Route::get('/blog', [BlogPageController::class, 'index']);
+Route::get('/blog/{post}', [BlogPageController::class, 'show']);
+
 
 Route::get('/contact', function () {
     return view('pages.contact');

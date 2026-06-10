@@ -27,9 +27,19 @@ class PostsController extends AdminBaseController
             'category' => ['nullable', 'string', 'max:255'],
             'excerpt' => ['nullable', 'string', 'max:500'],
             'body' => ['nullable', 'string'],
-            'image_path' => ['nullable', 'string', 'max:255'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
             'status' => ['required', 'in:draft,published'],
         ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $storedPath = $file->storeAs('public/images', $filename);
+            // storeAs('public/images', ...) => $storedPath like: "public/images/<filename>"
+            // Public URL should be: /storage/images/<filename>
+            $data['image_path'] = '/storage/' . str_replace('public/images/', 'images/', $storedPath);
+
+        }
 
         if ($data['status'] === 'published') {
             $data['published_at'] = now();
@@ -38,8 +48,10 @@ class PostsController extends AdminBaseController
         }
 
         Post::create($data);
-        return redirect()->route('admin.posts.index')->with('success', 'Post created.');
+        return redirect('/admin/posts')->with('success', 'Post created.');
     }
+
+
 
     public function edit(Post $post)
     {
@@ -53,9 +65,18 @@ class PostsController extends AdminBaseController
             'category' => ['nullable', 'string', 'max:255'],
             'excerpt' => ['nullable', 'string', 'max:500'],
             'body' => ['nullable', 'string'],
-            'image_path' => ['nullable', 'string', 'max:255'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
             'status' => ['required', 'in:draft,published'],
         ]);
+
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+            $storedPath = $file->storeAs('public/images', $filename);
+            $data['image_path'] = '/storage/' . str_replace('public/images/', 'images/', $storedPath);
+
+        }
+
 
         if ($data['status'] === 'published') {
             $data['published_at'] = now();
@@ -64,13 +85,15 @@ class PostsController extends AdminBaseController
         }
 
         $post->update($data);
-        return redirect()->route('admin.posts.index')->with('success', 'Post updated.');
+        return redirect('/admin/posts')->with('success', 'Post updated.');
     }
+
 
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('admin.posts.index')->with('success', 'Post deleted.');
+        return redirect('/admin/posts')->with('success', 'Post deleted.');
     }
+
 }
 

@@ -54,7 +54,8 @@
                         <p>{{ \Illuminate\Support\Str::limit(strip_tags($post->body ?? ''), 160) }}</p>
                     @endif
 
-                    <a class="blog-link" href="#">Read article →</a>
+                    <a class="blog-link" href="/blog/{{ $post->id }}">Read article →</a>
+
 
                 </div>
 

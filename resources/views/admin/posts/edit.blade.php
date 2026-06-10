@@ -5,7 +5,8 @@
 @section('content')
     <h1 style="margin:0 0 14px;">Edit Post</h1>
 
-    <form action="/admin/posts/{{ $post->id }}" method="POST" style="display:grid;gap:12px;">
+    <form action="/admin/posts/{{ $post->id }}" method="POST" enctype="multipart/form-data" style="display:grid;gap:12px;">
+
         @csrf
         @method('PUT')
 
@@ -30,9 +31,16 @@
         </div>
 
         <div class="admin-card">
-            <label><strong>Image Path (optional)</strong></label>
-            <input name="image_path" value="{{ old('image_path', $post->image_path) }}" placeholder="/images/..." style="width:100%;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.03);color:inherit;"/>
+            <label><strong>Upload Image (optional)</strong></label>
+            <input class="form-control" type="file" name="image" accept="image/*"/>
+            <div style="margin-top:10px;">
+                @if(!empty($post->image_path))
+                    <div style="font-weight:900; font-size:12px; color:rgba(16,185,129,.95); margin-bottom:6px;">Current Image</div>
+                    <img src="{{ $post->image_path }}" alt="{{ $post->title }}" style="width:100%; max-width:420px; border-radius:14px; border:1px solid rgba(16,185,129,.18); box-shadow:0 12px 30px rgba(15,23,42,.08);"/>
+                @endif
+            </div>
         </div>
+
 
         <div class="admin-card">
             <label><strong>Status</strong></label>
