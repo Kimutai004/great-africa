@@ -27,73 +27,44 @@
 <section class="section">
 
     <div class="events-grid">
+        @forelse($events as $event)
+            <article class="event-card">
+                <div class="event-date">
+                    @if($event->start_date)
+                        <span class="day">{{ $event->start_date->format('d') }}</span>
+                        <span class="month">{{ $event->start_date->format('M') }}</span>
+                    @else
+                        <span class="day">—</span>
+                        <span class="month">—</span>
+                    @endif
+                </div>
 
-        <!-- EVENT CARD -->
-        <article class="event-card">
+                <div class="event-content">
+                    <h3>{{ $event->title }}</h3>
 
-            <div class="event-date">
-                <span class="day">{{ date('d', strtotime('+2 weeks')) }}</span>
-                <span class="month">{{ date('M', strtotime('+2 weeks')) }}</span>
+                    <p class="event-meta">📍 {{ $event->location ?? '—' }}</p>
+
+                    @if($event->description)
+                        <p>{{ $event->description }}</p>
+                    @else
+                        <p></p>
+                    @endif
+
+                    @if($event->link_url)
+                        <a class="event-link" href="{{ $event->link_url }}" target="_blank" rel="noreferrer">
+                            {{ $event->link_text ?? 'Register Interest →' }}
+                        </a>
+                    @else
+                        <a class="event-link" href="/contact">Register Interest →</a>
+                    @endif
+                </div>
+            </article>
+        @empty
+            <div class="card" style="grid-column:1 / -1;">
+                <h3>No published events yet.</h3>
+                <p>Check back soon or contact us to propose an event.</p>
             </div>
-
-            <div class="event-content">
-                <h3>Field Day: Soil Health & Regenerative Practices</h3>
-
-                <p class="event-meta">📍 Nairobi County</p>
-
-                <p>
-                    Hands-on training on composting, mulching, and soil conservation techniques.
-                </p>
-
-                <a class="event-link" href="#">Register Interest →</a>
-            </div>
-
-        </article>
-
-        <!-- EVENT CARD -->
-        <article class="event-card">
-
-            <div class="event-date">
-                <span class="day">{{ date('d', strtotime('+1 month')) }}</span>
-                <span class="month">{{ date('M', strtotime('+1 month')) }}</span>
-            </div>
-
-            <div class="event-content">
-                <h3>Water Stewardship & Drought Resilience Workshop</h3>
-
-                <p class="event-meta">📍 Kenya</p>
-
-                <p>
-                    Community education on watershed protection and irrigation efficiency.
-                </p>
-
-                <a class="event-link" href="#">Request Invitation →</a>
-            </div>
-
-        </article>
-
-        <!-- EVENT CARD -->
-        <article class="event-card">
-
-            <div class="event-date">
-                <span class="day">{{ date('d', strtotime('+6 weeks')) }}</span>
-                <span class="month">{{ date('M', strtotime('+6 weeks')) }}</span>
-            </div>
-
-            <div class="event-content">
-                <h3>Youth & Women Climate Forum</h3>
-
-                <p class="event-meta">📍 Kenya</p>
-
-                <p>
-                    Mentorship, leadership development, and networking for community innovation.
-                </p>
-
-                <a class="event-link" href="#">Join Forum →</a>
-            </div>
-
-        </article>
-
+        @endforelse
     </div>
 
     <!-- CTA -->
@@ -115,3 +86,4 @@
 </section>
 
 @endsection
+

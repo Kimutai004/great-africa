@@ -49,8 +49,9 @@
                 <!-- BRAND -->
                 <a class="brand" href="/" aria-label="Great Africa Home">
 
-                    <div class="brand-mark">
-                        GA
+                    <!--Logo -->
+                    <div class="brand-logo" aria-hidden="true">
+                        <img src="/images/logo.png" alt="Great Africa Logo" />
                     </div>
 
                     <div class="brand-title">
@@ -178,10 +179,15 @@
 
                 <!-- ABOUT -->
                 <div>
-
-                    <div class="footer-brand">
+                    <!--Logo -->
+                    <div class="brand-logo" aria-hidden="true">
+                        <img src="/images/logo.png" alt="Great Africa Logo" />
+                        <div class="footer-brand">
                         Great Africa
                     </div>
+                    </div>
+
+                    
 
                     <p class="footer-text">
                         Sustainable agriculture, climate-smart innovation,

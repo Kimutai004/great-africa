@@ -2,23 +2,21 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        // Seed an admin user for the admin panel.
+        // Admin login uses Laravel default auth against the `users` table.
+        \App\Models\User::updateOrCreate(
+            ['email' => 'admin@greatafrica.test'],
+            [
+                'name' => 'Great Africa Admin',
+                'password' => bcrypt('admin123'),
+            ]
+        );
     }
 }
+

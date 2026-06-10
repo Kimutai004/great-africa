@@ -12,9 +12,15 @@
   <div class="split" style="margin-top:18px;">
     <div class="card">
       <h3>Volunteer signup</h3>
-      <p class="small">Placeholder form UI. Connect this to your preferred email/workflow after providing your backend handlers.</p>
+      @if (session('success'))
+        <div class="card" role="status" aria-live="polite" style="margin-bottom:14px;">
+          {{ session('success') }}
+        </div>
+      @endif
 
-      <form class="form" action="#" method="post" aria-label="Volunteer signup form" onsubmit="return false;">
+      <form class="form" action="{{ route('get-involved.store') }}" method="post" aria-label="Volunteer signup form">
+        @csrf
+
         <div class="field">
           <label for="name">Full name</label>
           <input id="name" name="name" type="text" autocomplete="name" required />
@@ -54,6 +60,7 @@
           <a class="btn btn-secondary" href="/contact">Ask questions</a>
         </div>
         <p class="small">By submitting, you agree to be contacted by Great Africa about volunteer opportunities.</p>
+
       </form>
     </div>
 

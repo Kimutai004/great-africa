@@ -67,7 +67,6 @@
                 </div>
 
                 <div class="impact-stats">
-
                     <div class="impact-item">
                         <strong>10,000+</strong>
                         <span>Farmers Reached</span>

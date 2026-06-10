@@ -27,88 +27,44 @@
 <section class="section">
 
     <div class="blog-grid">
+        @forelse($posts as $post)
+            <article class="blog-card">
 
-        <!-- POST -->
-        <article class="blog-card">
-
-            <div class="blog-image">
-                <img src="/images/blog/soil-health.jpg" alt="Soil health agriculture">
-            </div>
-
-            <div class="blog-content">
-
-                <div class="blog-meta">
-                    <span>{{ date('M d, Y', strtotime('-3 days')) }}</span>
-                    <span class="dot-sep">•</span>
-                    <span>Sustainable Agriculture</span>
+                <div class="blog-image">
+                    @if($post->image_path)
+                        <img src="{{ $post->image_path }}" alt="{{ $post->title }}" />
+                    @else
+                        <img src="/images/placeholder-og.jpg" alt="{{ $post->title }}" />
+                    @endif
                 </div>
 
-                <h3>5 Ways Soil Health Supports Food Security</h3>
+                <div class="blog-content">
 
-                <p>
-                    Practical guidance on soil conservation and how healthy soils strengthen community resilience.
-                </p>
+                    <div class="blog-meta">
+                        <span>{{ $post->published_at ? $post->published_at->format('M d, Y') : '' }}</span>
+                        <span class="dot-sep">•</span>
+                        <span>{{ $post->category ?? 'News' }}</span>
+                    </div>
 
-                <a class="blog-link" href="#">Read article →</a>
+                    <h3>{{ $post->title }}</h3>
 
-            </div>
+                    @if($post->excerpt)
+                        <p>{{ $post->excerpt }}</p>
+                    @else
+                        <p>{{ \Illuminate\Support\Str::limit(strip_tags($post->body ?? ''), 160) }}</p>
+                    @endif
 
-        </article>
+                    <a class="blog-link" href="#">Read article →</a>
 
-        <!-- POST -->
-        <article class="blog-card">
-
-            <div class="blog-image">
-                <img src="/images/blog/water-conservation.jpg" alt="Water conservation community work">
-            </div>
-
-            <div class="blog-content">
-
-                <div class="blog-meta">
-                    <span>{{ date('M d, Y', strtotime('-2 weeks')) }}</span>
-                    <span class="dot-sep">•</span>
-                    <span>Conservation</span>
                 </div>
 
-                <h3>Community Conservation: Protecting Water Sources</h3>
-
-                <p>
-                    How local coordination restores ecosystems and strengthens watershed health.
-                </p>
-
-                <a class="blog-link" href="#">Read article →</a>
-
+            </article>
+        @empty
+            <div class="card" style="grid-column:1 / -1;">
+                <h3>No published posts yet.</h3>
+                <p>Check back soon.</p>
             </div>
-
-        </article>
-
-        <!-- POST -->
-        <article class="blog-card">
-
-            <div class="blog-image">
-                <img src="/images/blog/youth-leadership.jpg" alt="Youth leadership training">
-            </div>
-
-            <div class="blog-content">
-
-                <div class="blog-meta">
-                    <span>{{ date('M d, Y', strtotime('-1 month')) }}</span>
-                    <span class="dot-sep">•</span>
-                    <span>Empowerment</span>
-                </div>
-
-                <h3>Youth & Women Leadership in Climate Solutions</h3>
-
-                <p>
-                    Lessons from mentoring programs that empower sustainable community-driven change.
-                </p>
-
-                <a class="blog-link" href="#">Read article →</a>
-
-            </div>
-
-        </article>
-
+        @endforelse
     </div>
 
     <!-- NEWSLETTER -->
@@ -121,7 +77,6 @@
         </p>
 
         <form class="newsletter-form" action="#" method="post">
-
             <input
                 type="email"
                 name="email"
@@ -132,7 +87,6 @@
             <button class="btn btn-primary" type="submit">
                 Subscribe
             </button>
-
         </form>
 
         <a class="newsletter-link" href="/contact">Or contact us directly →</a>
@@ -142,3 +96,4 @@
 </section>
 
 @endsection
+

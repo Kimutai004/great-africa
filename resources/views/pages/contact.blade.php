@@ -16,7 +16,15 @@
   <div class="split" style="margin-top:18px;">
     <div class="card">
       <h3>Send us a message</h3>
-      <form class="form" action="#" method="post" onsubmit="return false;" aria-label="Contact form">
+      @if (session('success'))
+        <div class="card" role="status" aria-live="polite" style="margin-bottom:14px;">
+          {{ session('success') }}
+        </div>
+      @endif
+
+      <form class="form" action="{{ route('contact.store') }}" method="post" aria-label="Contact form">
+        @csrf
+
         <div class="field">
           <label for="contact-name">Full name</label>
           <input id="contact-name" name="name" type="text" autocomplete="name" required />
@@ -49,7 +57,7 @@
           <button class="btn btn-primary" type="submit">Send message</button>
           <a class="btn btn-secondary" href="/events">View events</a>
         </div>
-        <p class="small">Placeholder form action. Hook this to Laravel routes or an email endpoint when ready.</p>
+
       </form>
     </div>
 
