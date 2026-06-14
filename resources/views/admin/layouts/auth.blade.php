@@ -6,17 +6,19 @@
 
     <title>@yield('title', 'Admin Login') | Great Africa</title>
 
-    @vite(['resources/css/app.css','resources/js/app.js'])
+    @vite(['resources/css/app.css','resources/css/admin.css','resources/js/app.js'])
 
     <style>
         :root{
-            --admin-ink:#0f172a;
-            --admin-muted:#475569;
-            --admin-card:rgba(255,255,255,.75);
-            --admin-border:rgba(16,185,129,.18);
-            --admin-accent:#16a34a;
-            --admin-accent2:#0ea5a5;
+            --admin-ink:#f7f7fb;
+            --admin-muted: rgba(231, 236, 253, .72);
+            --admin-card: rgba(255,255,255,.05);
+            --admin-border: rgba(99, 102, 241, .22);
+            --admin-accent:#6366f1;
+            --admin-accent2:#22c55e;
         }
+
+
 
 
         html,body{height:100%;}
@@ -24,14 +26,15 @@
             margin:0;
             font-family: "Inter", sans-serif;
             background:
-            radial-gradient(1000px 520px at 12% 0%, rgba(16,185,129,.20), transparent 60%),
-                radial-gradient(900px 520px at 92% 10%, rgba(14,165,233,.14), transparent 58%),
-                linear-gradient(180deg, #ffffff, #eafff5);
+            radial-gradient(1000px 520px at 12% 0%, rgba(99,102,241,.20), transparent 60%),
+                radial-gradient(900px 520px at 92% 10%, rgba(34,197,94,.14), transparent 58%),
+                linear-gradient(180deg, #070a18, #0b1020);
+
             color:var(--admin-ink);
         }
 
         .auth-shell{
-            min-height:100vh;
+            min-height:50vh;
             display:flex;
             align-items:center;
             justify-content:center;
@@ -57,20 +60,19 @@
         }
 
         .auth-logo{
-            width:44px;
-            height:44px;
+            width:54px;
+            height:54px;
             border-radius:14px;
-            background:linear-gradient(135deg, rgba(79,70,229,.95), rgba(6,182,212,.85));
             display:grid;
             place-items:center;
             font-weight:900;
         }
 
         .auth-brand strong{display:block; line-height:1.1;}
-        .auth-brand span{display:block; font-size:12px; color:var(--admin-muted); margin-top:2px;}
+        .auth-brand span{display:block; font-size:11px; color:var(--admin-muted); margin-top:2px;}
 
-        .auth-title{margin:0 0 6px; font-size:22px;}
-        .auth-sub{margin:0 0 16px; color:var(--admin-muted); font-size:13px;}
+        .auth-title{margin:0 0 6px; font-size:18px;}
+        .auth-sub{margin:0 0 16px; color:var(--admin-muted); font-size:12px;}
 
         .field{margin-top:12px;}
 
@@ -83,7 +85,8 @@
             color:inherit;
             outline:none;
         }
-        .input:focus{border-color:rgba(16,185,129,.55); box-shadow: 0 0 0 4px rgba(16,185,129,.18);}
+        .input:focus{border-color:rgba(61, 123, 70, 0.55); box-shadow: 0 0 0 4px rgba(99,102,241,.18);}
+
 
         .btn{
             display:inline-flex;
@@ -98,7 +101,8 @@
             text-decoration:none;
         }
 
-        .btn-primary{background:linear-gradient(135deg, rgba(79,70,229,.95), rgba(6,182,212,.85)); color:white;}
+        .btn-primary{background:linear-gradient(135deg, rgba(62, 123, 89, 0.95), rgba(64, 132, 83, 0.85)); color:white;}
+
         .btn-primary:hover{filter: brightness(1.06);} 
 
         .btn-ghost{background:transparent; border-color: rgba(255,255,255,.18); color:var(--admin-text);}
@@ -113,6 +117,7 @@
             color:rgba(255,255,255,.92);
         }
 
+
         @media (max-width: 420px){
             .auth-card{padding:18px;}
         }
@@ -120,20 +125,8 @@
 </head>
 <body>
     <div class="auth-shell">
-        <div class="auth-card">
-            <div class="auth-brand">
-                <!-- Logo -->
-                <div class="auth-logo">
-                    <img src="/images/logo.png" alt="Great Africa Logo" />
-                </div>
-                <div>
-                    <strong>Great Africa</strong>
-                    <span>Admin Access</span>
-                </div>
-            </div>
-
+        
             @yield('content')
-        </div>
     </div>
 </body>
 </html>

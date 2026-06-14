@@ -35,7 +35,7 @@
             <input class="form-control" type="file" name="image" accept="image/*"/>
             <div style="margin-top:10px;">
                 @if(!empty($post->image_path))
-                    <div style="font-weight:900; font-size:12px; color:rgba(16,185,129,.95); margin-bottom:6px;">Current Image</div>
+                    <div style="font-weight:900; font-size:11px; color:rgba(16,185,129,.95); margin-bottom:6px;">Current Image</div>
                     <img src="{{ $post->image_path }}" alt="{{ $post->title }}" style="width:100%; max-width:420px; border-radius:14px; border:1px solid rgba(16,185,129,.18); box-shadow:0 12px 30px rgba(15,23,42,.08);"/>
                 @endif
             </div>

@@ -5,7 +5,18 @@
 @section('content')
     <div style="max-width:520px; margin:0 auto; padding:22px;">
         <div class="admin-card" style="padding:18px;">
-            <h1 style="margin:0 0 10px; font-size:22px;">Admin Login</h1>
+            <!-- Logo and branding -->
+            <div class="auth-brand">
+                <div class="auth-logo">
+                    <img src="/images/logo.png" alt="Great Africa Logo" />
+                </div>
+                <div>
+                    <strong>Great Africa</strong>
+                    <span>Admin Panel</span>
+                </div>
+            </div>
+            
+            <h1 style="margin:0 0 10px; font-size:18px;">Admin Login</h1>
             <p style="margin:0 0 16px; color:rgba(255,255,255,.68);">Sign in to manage events, news, and inbox submissions.</p>
 
             <form action="/admin/login" method="POST" style="display:grid; gap:12px;">

@@ -37,7 +37,7 @@
         <div class="admin-card" style="padding:14px;">
             <label><strong>Upload Image (optional)</strong></label>
             <input class="form-control" type="file" name="image" accept="image/*" style="width:100%;padding:10px 0;"/>
-            <div style="margin-top:8px; color:rgba(16,185,129,.95); font-weight:800; font-size:12px;">
+            <div style="margin-top:8px; color:rgba(16,185,129,.95); font-weight:800; font-size:11px;">
                 Accepted: JPG/PNG/WebP. This will be uploaded and shown on the blog.
             </div>
         </div>

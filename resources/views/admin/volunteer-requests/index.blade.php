@@ -3,9 +3,16 @@
 @section('title','Admin - Volunteer Requests')
 
 @section('content')
-    <h1 style="margin:0 0 14px;">Volunteer Requests</h1>
+    <div class="admin-topbar">
+        <div>
+            <h1 style="margin:0 0 6px;">Volunteer Requests</h1>
+            <div class="crumb">Inbox</div>
+        </div>
+    </div>
 
-    <table>
+    <div class="table-wrap">
+        <div class="admin-card" style="padding:0; overflow:hidden;">
+            <table>
         <thead>
             <tr>
                 <th>Name</th>
@@ -24,7 +31,10 @@
                     <td>{{ $request->email }}</td>
                     <td>{{ $request->location ?? '—' }}</td>
                     <td>{{ $request->interest ?? '—' }}</td>
-                    <td style="max-width:420px;">{{ $request->message }}</td>
+                    <td style="max-width:420px;">
+    {{ \Illuminate\Support\Str::limit($request->message, 100) }}
+    <button type="button" class="btn btn-ghost view-message" data-message="{{ $request->message }}" data-delete-url="/admin/volunteer-requests/{{ $request->id }}">View</button>
+</td>
                     <td class="muted">{{ $request->created_at->format('Y-m-d H:i') }}</td>
                     <td>
                         <form action="/admin/volunteer-requests/{{ $request->id }}" method="POST" onsubmit="return confirm('Delete this request?');">
@@ -36,7 +46,7 @@
                 </tr>
             @endforeach
         </tbody>
-    </table>
+    </table></div></div>
 
     <div style="margin-top:14px;">{{ $requests->links() }}</div>
 @endsection

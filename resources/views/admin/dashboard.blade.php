@@ -3,7 +3,7 @@
 @section('title','Dashboard')
 
 @section('content')
-    <h1 style="margin:0 0 16px;">Dashboard</h1>
+    <h1 style="margin:0 0 0px;">Dashboard</h1>
 
     <div class="admin-grid-cards" style="margin-bottom:16px;">
         <div class="admin-card admin-stat">
@@ -24,11 +24,11 @@
         </div>
     </div>
 
-    <div class="admin-card" style="padding:16px;">
+    <div class="admin-card">
         <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
             <div>
-                <h2 style="margin:0 0 6px; font-size:18px;">Quick actions</h2>
-                <div style="color:rgba(255,255,255,.68); font-size:13px;">Create new content and review inbox submissions.</div>
+                <h2 style="margin:0 0 6px; font-size:16px;">Quick actions</h2>
+                <div style="color:rgba(255,255,255,.68); font-size:12px;">Create new content and review inbox submissions.</div>
             </div>
             <div class="admin-actions">
                 <a class="btn btn-primary" href="/admin/events/create" style="padding:10px 14px; border-radius:12px; font-weight:700; text-decoration:none;">
