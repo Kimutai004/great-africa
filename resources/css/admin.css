@@ -222,7 +222,8 @@
 }
 
 .modal-content {
-  background: var(--admin-card);
+  background: var(--admin-bg);
+  color: var(--admin-ink);
   border: 1px solid var(--admin-border);
   border-radius: var(--radius-lg);
   max-width: 90%;

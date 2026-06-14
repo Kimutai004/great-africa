@@ -7,6 +7,37 @@
     <title>@yield('title', 'Admin') | Great Africa</title>
 
     @vite(['resources/css/app.css','resources/css/admin.css','resources/js/app.js'])
+<style>
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  .modal.show { display: flex; }
+  .modal-content {
+    background: var(--admin-bg);
+    color: var(--admin-ink);
+    border: 1px solid var(--admin-border);
+    border-radius: var(--radius-lg);
+    max-width: 90%;
+    max-height: 80%;
+    overflow-y: auto;
+    padding: 1.5rem;
+  }
+  .modal-close {
+    background: var(--admin-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: .5rem 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+</style>
 </head>
 <body>
     <div class="admin-shell">
