@@ -6,9 +6,9 @@
 @section('content')
 
 <!-- PAGE HERO -->
-<section class="page-hero">
+<section class="page-hero on-dark">
     <div class="container">
-        <p class="eyebrow"><span class="num">About</span> Who we are</p>
+        <p class="eyebrow"><span class="num">GREAT</span> Africa — Est. Kenya</p>
         <h1 class="h1">An African-led answer to a generational challenge.</h1>
         <p class="lead">
             Great Africa exists to build resilience that outlasts us — in the

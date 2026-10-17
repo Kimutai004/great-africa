@@ -6,7 +6,7 @@
 @section('content')
 
 <!-- ================= HERO ================= -->
-<section class="hero" aria-labelledby="hero-title">
+<section class="hero on-dark" aria-labelledby="hero-title">
     <div class="hero-media" aria-hidden="true">
         <img src="{{ asset('images/hero-1.jpg') }}" alt="" fetchpriority="high" />
     </div>

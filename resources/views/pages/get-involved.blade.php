@@ -6,9 +6,9 @@
 @section('content')
 
 <!-- PAGE HERO -->
-<section class="page-hero">
+<section class="page-hero on-dark">
     <div class="container">
-        <p class="eyebrow"><span class="num">Get Involved</span> Take action</p>
+        <p class="eyebrow"><span class="num">GREAT</span> Africa — Est. Kenya</p>
         <h1 class="h1">Your skills. Your time. Your support.</h1>
         <p class="lead">
             Every way into this work matters — volunteer, give, or partner.

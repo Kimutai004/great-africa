@@ -6,9 +6,9 @@
 @section('content')
 
 <!-- PAGE HERO -->
-<section class="page-hero">
+<section class="page-hero on-dark">
     <div class="container">
-        <p class="eyebrow"><span class="num">Impact</span> What changes</p>
+        <p class="eyebrow"><span class="num">GREAT</span> Africa — Est. Kenya</p>
         <h1 class="h1">Impact you can trace to a field.</h1>
         <p class="lead">
             Numbers matter — and so do the people behind them. Here is what

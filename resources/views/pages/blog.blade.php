@@ -6,9 +6,9 @@
 @section('content')
 
 <!-- PAGE HERO -->
-<section class="page-hero">
+<section class="page-hero on-dark">
     <div class="container">
-        <p class="eyebrow"><span class="num">News</span> From the field</p>
+        <p class="eyebrow"><span class="num">GREAT</span> Africa — Est. Kenya</p>
         <h1 class="h1">News &amp; insights.</h1>
         <p class="lead">
             Program updates, community stories, and what we are learning

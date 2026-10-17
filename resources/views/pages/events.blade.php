@@ -6,9 +6,9 @@
 @section('content')
 
 <!-- PAGE HERO -->
-<section class="page-hero">
+<section class="page-hero on-dark">
     <div class="container">
-        <p class="eyebrow"><span class="num">Events</span> In the field</p>
+        <p class="eyebrow"><span class="num">GREAT</span> Africa — Est. Kenya</p>
         <h1 class="h1">Field days, training, and community forums.</h1>
         <p class="lead">
             Where climate-smart agriculture and conservation stop being slides

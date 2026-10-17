@@ -6,9 +6,9 @@
 @section('content')
 
 <!-- PAGE HERO -->
-<section class="page-hero">
+<section class="page-hero on-dark">
     <div class="container">
-        <p class="eyebrow"><span class="num">News</span> {{ $post->category ?? 'Article' }}</p>
+        <p class="eyebrow"><span class="num">GREAT</span> Africa — Est. Kenya</p>
         <h1 class="h1">{{ $post->title }}</h1>
         <p class="lead">
             {{ $post->published_at ? $post->published_at->format('d M Y') : '' }}
