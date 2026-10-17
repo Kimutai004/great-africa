@@ -13,7 +13,7 @@ return [
 
     'tagline' => 'Climate resilience. Sustainable agriculture. Community power.',
 
-    'email' => 'hello@example.org', // TODO: replace with official email
+    'email' => 'info@thegreatafrica.org', // TODO: replace with official email
     'phone' => '+254 700 000 000',  // TODO: replace with official phone
     'phone_href' => '+254700000000',
     'location' => 'Nairobi, Kenya',
