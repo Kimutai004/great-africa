@@ -15,7 +15,7 @@
 
     <div class="admin-toolbar">
         <div class="admin-search">
-            <input type="text" name="search" placeholder="Search eventsâ€¦" value="{{ request('search') }}" />
+            <input type="text" name="search" placeholder="Search events…" value="{{ request('search') }}" />
         </div>
         <select class="admin-filter-select" name="status">
             <option value="">All statuses</option>
@@ -61,21 +61,21 @@
                     <td><input type="checkbox" name="selected[]" value="{{ $event->id }}" /></td>
                     <td>
                         <strong>{{ $event->title }}</strong>
-                        <div style="font-size:12px; color:#6b7280;">#{{ $event->id }}</div>
+                        <div class="muted">#{{ $event->id }}</div>
                     </td>
-                    <td>{{ $event->location ?? 'â€”' }}</td>
-                    <td>{{ $event->start_date ? $event->start_date->format('M d, Y') : 'â€”' }}</td>
+                    <td>{{ $event->location ?? '—' }}</td>
+                    <td>{{ $event->start_date ? $event->start_date->format('M d, Y') : '—' }}</td>
                     <td>
-                        <span class="badge" style="background:{{ $event->status === 'published' ? 'rgba(15, 83, 60, 0.1)' : 'rgba(107, 114, 128, 0.1)' }}; color:{{ $event->status === 'published' ? '#0F533C' : '#6b7280' }}; border-color:{{ $event->status === 'published' ? '#0F533C' : '#6b7280' }};">
+                        <span class="badge {{ $event->status === 'published' ? 'badge-published' : 'badge-draft' }}">
                             {{ ucfirst($event->status) }}
                         </span>
                     </td>
                     <td>
-                        <div class="admin-actions" style="margin-top:0; gap:8px;">
-                            <a href="/admin/events/{{ $event->id }}/edit" class="btn-ghost" style="padding:6px 12px;border-radius:8px;font-size:13px;border:1px solid #e5e7eb;background:#fff;color:#374151;">Edit</a>
+                        <div class="admin-actions">
+                            <a href="/admin/events/{{ $event->id }}/edit" class="btn-ghost">Edit</a>
                             <form action="/admin/events/{{ $event->id }}" method="POST" onsubmit="return confirm('Delete this event?');" style="margin:0;display:inline;">
                                 @csrf @method('DELETE')
-                                <button type="submit" style="padding:6px 12px;border-radius:8px;font-size:13px;border:1px solid #fee2e2;background:#fff;color:#dc2626;">Delete</button>
+                                <button type="submit" class="btn-danger">Delete</button>
                             </form>
                         </div>
                     </td>

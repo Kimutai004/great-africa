@@ -15,7 +15,7 @@
 
     <div class="admin-toolbar">
         <div class="admin-search">
-            <input type="text" name="search" placeholder="Search postsâ€¦" value="{{ request('search') }}" />
+            <input type="text" name="search" placeholder="Search posts…" value="{{ request('search') }}" />
         </div>
         <select class="admin-filter-select" name="status">
             <option value="">All statuses</option>
@@ -61,21 +61,21 @@
                     <td><input type="checkbox" name="selected[]" value="{{ $post->id }}" /></td>
                     <td>
                         <strong>{{ $post->title }}</strong>
-                        <div style="font-size:12px; color:#6b7280;">#{{ $post->id }}</div>
+                        <div class="muted">#{{ $post->id }}</div>
                     </td>
-                    <td>{{ $post->category ?? 'â€”' }}</td>
-                    <td>{{ $post->published_at ? $post->published_at->format('Y-m-d') : 'â€”' }}</td>
+                    <td>{{ $post->category ?? '—' }}</td>
+                    <td>{{ $post->published_at ? $post->published_at->format('Y-m-d') : '—' }}</td>
                     <td>
-                        <span class="badge" style="background:{{ $post->status === 'published' ? 'rgba(15, 83, 60, 0.1)' : 'rgba(107, 114, 128, 0.1)' }}; color:{{ $post->status === 'published' ? '#0F533C' : '#6b7280' }}; border-color:{{ $post->status === 'published' ? '#0F533C' : '#6b7280' }};">
+                        <span class="badge {{ $post->status === 'published' ? 'badge-published' : 'badge-draft' }}">
                             {{ ucfirst($post->status) }}
                         </span>
                     </td>
                     <td>
-                        <div class="admin-actions" style="margin-top:0; gap:8px;">
-                            <a href="/admin/posts/{{ $post->id }}/edit" class="btn-ghost" style="padding:6px 12px;border-radius:8px;font-size:13px;border:1px solid #e5e7eb;background:#fff;color:#374151;">Edit</a>
+                        <div class="admin-actions">
+                            <a href="/admin/posts/{{ $post->id }}/edit" class="btn-ghost">Edit</a>
                             <form action="/admin/posts/{{ $post->id }}" method="POST" onsubmit="return confirm('Delete this post?');" style="margin:0;display:inline;">
                                 @csrf @method('DELETE')
-                                <button type="submit" style="padding:6px 12px;border-radius:8px;font-size:13px;border:1px solid #fee2e2;background:#fff;color:#dc2626;">Delete</button>
+                                <button type="submit" class="btn-danger">Delete</button>
                             </form>
                         </div>
                     </td>

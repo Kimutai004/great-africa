@@ -12,7 +12,7 @@
 
     <div class="admin-toolbar">
         <div class="admin-search">
-            <input type="text" name="search" placeholder="Search requestsâ€¦" value="{{ request('search') }}" />
+            <input type="text" name="search" placeholder="Search requests…" value="{{ request('search') }}" />
         </div>
     </div>
 
@@ -53,20 +53,20 @@
                     <td><input type="checkbox" name="selected[]" value="{{ $request->id }}" /></td>
                     <td>
                         <strong>{{ $request->name }}</strong>
-                        <div style="font-size:12px; color:#6b7280;">#{{ $request->id }}</div>
+                        <div class="muted">#{{ $request->id }}</div>
                     </td>
                     <td>{{ $request->email }}</td>
-                    <td>{{ $request->location ?? 'â€”' }}</td>
-                    <td>{{ $request->interest ?? 'â€”' }}</td>
+                    <td>{{ $request->location ?? '—' }}</td>
+                    <td>{{ $request->interest ?? '—' }}</td>
                     <td style="max-width:260px;">
                         {{ \Illuminate\Support\Str::limit($request->message, 100) }}
-                        <button type="button" class="btn-ghost view-message" data-message="{{ $request->message }}" data-delete-url="/admin/volunteer-requests/{{ $request->id }}" style="font-size:12px; padding:4px 8px; border:1px solid #e5e7eb; border-radius:6px; background:#fff; color:#0F533C; margin-top:4px;">View</button>
+                        <button type="button" class="btn-ghost view-message" data-message="{{ $request->message }}" data-delete-url="/admin/volunteer-requests/{{ $request->id }}">View</button>
                     </td>
                     <td class="muted">{{ $request->created_at->format('Y-m-d H:i') }}</td>
                     <td>
                         <form action="/admin/volunteer-requests/{{ $request->id }}" method="POST" onsubmit="return confirm('Delete this request?');" style="margin:0;">
                             @csrf @method('DELETE')
-                            <button type="submit" style="padding:6px 12px;border-radius:8px;font-size:13px;border:1px solid #fee2e2;background:#fff;color:#dc2626;">Delete</button>
+                            <button type="submit" class="btn-danger">Delete</button>
                         </form>
                     </td>
                 </tr>

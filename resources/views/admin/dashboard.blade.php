@@ -14,55 +14,83 @@
         </div>
     </div>
 
-    <div style="margin-bottom:24px; display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;">
-        <div class="admin-card" style="padding:20px; border:1px solid var(--admin-border); border-radius:12px; background:#fff;">
-            <div style="display:flex; align-items:center; justify-content:space-between;">
-                <div>
-                    <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; font-weight:800; color:#6b7280;">Events</div>
-                    <div style="font-size:32px; font-weight:800; color:#111827;">{{ $eventsCount ?? 0 }}</div>
-                </div>
-                <div style="width:48px; height:48px; border-radius:12px; background:rgba(15, 83, 60, 0.10); display:flex; align-items:center; justify-content:center; color:#0F533C; font-size:20px;">ðŸ“…</div>
+    <!-- Stat Cards -->
+    <div class="admin-stat-grid">
+        <div class="admin-stat-card">
+            <div class="admin-stat-info">
+                <div class="admin-stat-label">Events</div>
+                <div class="admin-stat-value">{{ $eventsCount ?? 0 }}</div>
             </div>
+            <div class="admin-stat-icon">&#128197;</div>
         </div>
-        <div class="admin-card" style="padding:20px; border:1px solid var(--admin-border); border-radius:12px; background:#fff;">
-            <div style="display:flex; align-items:center; justify-content:space-between;">
-                <div>
-                    <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; font-weight:800; color:#6b7280;">News / Posts</div>
-                    <div style="font-size:32px; font-weight:800; color:#111827;">{{ $postsCount ?? 0 }}</div>
-                </div>
-                <div style="width:48px; height:48px; border-radius:12px; background:rgba(15, 83, 60, 0.10); display:flex; align-items:center; justify-content:center; color:#0F533C; font-size:20px;">ðŸ“°</div>
+        <div class="admin-stat-card">
+            <div class="admin-stat-info">
+                <div class="admin-stat-label">News / Posts</div>
+                <div class="admin-stat-value">{{ $postsCount ?? 0 }}</div>
             </div>
+            <div class="admin-stat-icon">&#128221;</div>
         </div>
-        <div class="admin-card" style="padding:20px; border:1px solid var(--admin-border); border-radius:12px; background:#fff;">
-            <div style="display:flex; align-items:center; justify-content:space-between;">
-                <div>
-                    <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; font-weight:800; color:#6b7280;">Contact Messages</div>
-                    <div style="font-size:32px; font-weight:800; color:#111827;">{{ $messagesCount ?? 0 }}</div>
-                </div>
-                <div style="width:48px; height:48px; border-radius:12px; background:rgba(15, 83, 60, 0.10); display:flex; align-items:center; justify-content:center; color:#0F533C; font-size:20px;">âœ‰ï¸</div>
+        <div class="admin-stat-card">
+            <div class="admin-stat-info">
+                <div class="admin-stat-label">Contact Messages</div>
+                <div class="admin-stat-value">{{ $messagesCount ?? 0 }}</div>
             </div>
+            <div class="admin-stat-icon">&#9993;</div>
         </div>
-        <div class="admin-card" style="padding:20px; border:1px solid var(--admin-border); border-radius:12px; background:#fff;">
-            <div style="display:flex; align-items:center; justify-content:space-between;">
-                <div>
-                    <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.08em; font-weight:800; color:#6b7280;">Volunteer Requests</div>
-                    <div style="font-size:32px; font-weight:800; color:#111827;">{{ $requestsCount ?? 0 }}</div>
-                </div>
-                <div style="width:48px; height:48px; border-radius:12px; background:rgba(15, 83, 60, 0.10); display:flex; align-items:center; justify-content:center; color:#0F533C; font-size:20px;">ðŸ™‹</div>
+        <div class="admin-stat-card">
+            <div class="admin-stat-info">
+                <div class="admin-stat-label">Volunteer Requests</div>
+                <div class="admin-stat-value">{{ $requestsCount ?? 0 }}</div>
             </div>
+            <div class="admin-stat-icon">&#128105;</div>
         </div>
     </div>
 
-    <div class="admin-card" style="border:1px solid var(--admin-border); border-radius:12px; background:#fff;">
-        <div style="padding:20px; border-bottom:1px solid var(--admin-border-soft);">
-            <h2 style="margin:0; font-size:16px; font-weight:800; color:#111827; text-transform:uppercase; letter-spacing:0.08em;">Quick Actions</h2>
+    <!-- Quick Actions + Recent Activity -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;">
+
+        <!-- Quick Actions -->
+        <div class="admin-section">
+            <div class="admin-section-head">
+                <h2>Quick Actions</h2>
+            </div>
+            <div class="admin-section-body">
+                <div class="admin-quick-grid">
+                    <a href="/admin/events" class="admin-quick-item">View All Events</a>
+                    <a href="/admin/posts" class="admin-quick-item">View All Posts</a>
+                    <a href="/admin/contact-messages" class="admin-quick-item">View Contact Messages</a>
+                    <a href="/admin/volunteer-requests" class="admin-quick-item">View Volunteer Requests</a>
+                    <a href="/admin/newsletter" class="admin-quick-item">View Newsletter</a>
+                </div>
+            </div>
         </div>
-        <div style="padding:20px; display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px;">
-            <a href="/admin/events" class="btn-back" style="padding:14px; border:1px solid var(--admin-border); border-radius:10px; text-align:center; display:block;">View All Events</a>
-            <a href="/admin/posts" class="btn-back" style="padding:14px; border:1px solid var(--admin-border); border-radius:10px; text-align:center; display:block;">View All Posts</a>
-            <a href="/admin/contact-messages" class="btn-back" style="padding:14px; border:1px solid var(--admin-border); border-radius:10px; text-align:center; display:block;">View Contact Messages</a>
-            <a href="/admin/volunteer-requests" class="btn-back" style="padding:14px; border:1px solid var(--admin-border); border-radius:10px; text-align:center; display:block;">View Volunteer Requests</a>
-            <a href="/admin/newsletter" class="btn-back" style="padding:14px; border:1px solid var(--admin-border); border-radius:10px; text-align:center; display:block;">View Newsletter</a>
+
+        <!-- Recent Activity -->
+        <div class="admin-section">
+            <div class="admin-section-head">
+                <h2>Recent Activity</h2>
+            </div>
+            <div class="admin-section-body">
+                <ul class="admin-activity-list">
+                    @forelse($recentActivity as $activity)
+                    <li class="admin-activity-item">
+                        <div class="admin-activity-icon">{!! $activity['icon'] !!}</div>
+                        <div class="admin-activity-content">
+                            <div class="admin-activity-title">{{ $activity['title'] }}</div>
+                            <div class="admin-activity-meta">{{ $activity['meta'] }}</div>
+                        </div>
+                    </li>
+                    @empty
+                    <li class="admin-activity-item">
+                        <div class="admin-activity-content">
+                            <div class="admin-activity-title">No recent activity</div>
+                            <div class="admin-activity-meta">Start by creating an event or post.</div>
+                        </div>
+                    </li>
+                    @endforelse
+                </ul>
+            </div>
         </div>
+
     </div>
 @endsection

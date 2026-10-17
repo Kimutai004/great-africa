@@ -12,7 +12,7 @@
 
     <div class="admin-toolbar">
         <div class="admin-search">
-            <input type="text" name="search" placeholder="Search subscribersâ€¦" value="{{ request('search') }}" />
+            <input type="text" name="search" placeholder="Search subscribers…" value="{{ request('search') }}" />
         </div>
     </div>
 
@@ -26,7 +26,7 @@
         <button class="admin-bulk-btn danger" onclick="if(confirm('Remove selected subscribers?')){ document.getElementById('bulk_action').value='delete'; document.getElementById('bulk_form').submit(); }">Remove</button>
     </div>
 
-    <form id="bulk_form" action="{{ route('admin.newsletter.bulk') }}" method="POST" style="display:none;">
+    <form action="{{ route('admin.newsletter.bulk') }}" method="POST" style="display:none;">
         @csrf
         @foreach($subscribers as $subscriber)
             <input type="checkbox" name="selected[]" value="{{ $subscriber->id }}" style="display:none;">
@@ -52,7 +52,7 @@
                     <td>
                         <form action="{{ route('admin.newsletter.destroy', $subscriber) }}" method="POST" onsubmit="return confirm('Remove this subscriber?');" style="margin:0;">
                             @csrf @method('DELETE')
-                            <button type="submit" style="padding:6px 12px;border-radius:8px;font-size:13px;border:1px solid #fee2e2;background:#fff;color:#dc2626;">Remove</button>
+                            <button type="submit" class="btn-danger">Remove</button>
                         </form>
                     </td>
                 </tr>

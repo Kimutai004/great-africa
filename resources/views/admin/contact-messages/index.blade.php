@@ -12,7 +12,7 @@
 
     <div class="admin-toolbar">
         <div class="admin-search">
-            <input type="text" name="search" placeholder="Search messagesâ€¦" value="{{ request('search') }}" />
+            <input type="text" name="search" placeholder="Search messages…" value="{{ request('search') }}" />
         </div>
     </div>
 
@@ -52,19 +52,19 @@
                     <td><input type="checkbox" name="selected[]" value="{{ $message->id }}" /></td>
                     <td>
                         <strong>{{ $message->name }}</strong>
-                        <div style="font-size:12px; color:#6b7280;">#{{ $message->id }}</div>
+                        <div class="muted">#{{ $message->id }}</div>
                     </td>
                     <td>{{ $message->email }}</td>
-                    <td>{{ $message->topic ?? 'â€”' }}</td>
+                    <td>{{ $message->topic ?? '—' }}</td>
                     <td style="max-width:260px;">
                         {{ \Illuminate\Support\Str::limit($message->message, 100) }}
-                        <button type="button" class="btn-ghost view-message" data-message="{{ $message->message }}" data-delete-url="/admin/contact-messages/{{ $message->id }}" style="font-size:12px; padding:4px 8px; border:1px solid #e5e7eb; border-radius:6px; background:#fff; color:#0F533C; margin-top:4px;">View</button>
+                        <button type="button" class="btn-ghost view-message" data-message="{{ $message->message }}" data-delete-url="/admin/contact-messages/{{ $message->id }}">View</button>
                     </td>
                     <td class="muted">{{ $message->created_at->format('Y-m-d H:i') }}</td>
                     <td>
                         <form action="/admin/contact-messages/{{ $message->id }}" method="POST" onsubmit="return confirm('Delete this message?');" style="margin:0;">
                             @csrf @method('DELETE')
-                            <button type="submit" style="padding:6px 12px;border-radius:8px;font-size:13px;border:1px solid #fee2e2;background:#fff;color:#dc2626;">Delete</button>
+                            <button type="submit" class="btn-danger">Delete</button>
                         </form>
                     </td>
                 </tr>

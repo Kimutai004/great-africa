@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
         // Seed an admin user for the admin panel.
         // Admin login uses Laravel default auth against the `users` table.
         \App\Models\User::updateOrCreate(
-            ['email' => 'admin@greatafrica.test'],
+            ['email' => 'admin@greatafrica.org'],
             [
                 'name' => 'Great Africa Admin',
                 'password' => bcrypt('admin123'),
