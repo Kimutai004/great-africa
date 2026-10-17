@@ -1,88 +1,87 @@
 @extends('layouts.app')
 
-@section('title','Events | Great Africa')
+@section('title', 'Events — Great Africa')
+@section('meta_description', 'Field days, training sessions, workshops, and community forums bringing climate-smart agriculture and conservation to life.')
 
 @section('content')
 
-<!-- HERO -->
-<section class="page-hero events-hero">
+<!-- PAGE HERO -->
+<section class="page-hero">
     <div class="container">
-
-        <div class="kicker">
-            <span class="dot"></span>
-            Field learning • Community training • Climate action
-        </div>
-
-        <h1 class="page-title">Events</h1>
-
-        <p class="page-lead">
-            Field days, training sessions, workshops, and community forums
-            that bring climate-smart agriculture and conservation to life.
+        <p class="eyebrow"><span class="num">Events</span> In the field</p>
+        <h1 class="h1">Field days, training, and community forums.</h1>
+        <p class="lead">
+            Where climate-smart agriculture and conservation stop being slides
+            and start being soil under your boots.
         </p>
-
+        <p class="page-crumbs"><a href="/">Home</a> · Events</p>
     </div>
 </section>
 
 <!-- EVENTS -->
 <section class="section">
+    <div class="container">
 
-    <div class="events-grid">
-        @forelse($events as $event)
-            <article class="event-card">
-                <div class="event-date">
-                    @if($event->start_date)
-                        <span class="day">{{ $event->start_date->format('d') }}</span>
-                        <span class="month">{{ $event->start_date->format('M') }}</span>
-                    @else
-                        <span class="day">—</span>
-                        <span class="month">—</span>
-                    @endif
-                </div>
+        @forelse ($events as $event)
+            <div class="event-list">
+                <article class="event-row">
+                    <div class="event-date">
+                        @if ($event->start_date)
+                            <span class="day">{{ $event->start_date->format('d') }}</span>
+                            <span class="mon">{{ $event->start_date->format('M Y') }}</span>
+                        @else
+                            <span class="mon">TBA</span>
+                        @endif
+                    </div>
 
-                <div class="event-content">
-                    <h3>{{ $event->title }}</h3>
+                    <div class="event-body">
+                        <h3>{{ $event->title }}</h3>
+                        @if ($event->description)
+                            <p>{{ $event->description }}</p>
+                        @endif
+                        <p class="event-meta">
+                            {{ $event->location ?? 'Location TBA' }}
+                            @if ($event->end_date && $event->start_date && ! $event->start_date->isSameDay($event->end_date))
+                                · {{ $event->start_date->format('d M') }} – {{ $event->end_date->format('d M Y') }}
+                            @endif
+                        </p>
+                    </div>
 
-                    <p class="event-meta">📍 {{ $event->location ?? '—' }}</p>
-
-                    @if($event->description)
-                        <p>{{ $event->description }}</p>
-                    @else
-                        <p></p>
-                    @endif
-
-                    @if($event->link_url)
-                        <a class="event-link" href="{{ $event->link_url }}" target="_blank" rel="noreferrer">
-                            {{ $event->link_text ?? 'Register Interest →' }}
+                    @if ($event->link_url)
+                        <a class="link-arrow" href="{{ $event->link_url }}" target="_blank" rel="noreferrer">
+                            {{ $event->link_text ?? 'Register →' }}
                         </a>
                     @else
-                        <a class="event-link" href="/contact">Register Interest →</a>
+                        <a class="link-arrow" href="/contact">Register interest →</a>
                     @endif
-                </div>
-            </article>
+                </article>
+            </div>
         @empty
-            <div class="card" style="grid-column:1 / -1;">
+            <div class="empty-state reveal">
                 <h3>No published events yet.</h3>
-                <p>Check back soon or contact us to propose an event.</p>
+                <p>
+                    Field days, trainings, and community forums will be listed
+                    here as they are scheduled. Check back soon — or propose one.
+                </p>
+                <a class="btn" href="/contact">Propose an event</a>
             </div>
         @endforelse
+
     </div>
+</section>
 
-    <!-- CTA -->
-    <div class="event-cta">
-
-        <h2>Want to host an event with us?</h2>
-
-        <p>
-            We partner with institutions, NGOs, and communities to deliver impactful climate-focused events.
-        </p>
-
-        <div class="hero-actions">
-            <a class="btn btn-primary" href="/contact">Contact Us</a>
-            <a class="btn btn-secondary" href="/programs">View Programs</a>
+<!-- CTA -->
+<section class="cta-band">
+    <div class="container cta-band-inner">
+        <div>
+            <h2>Host an event with us.</h2>
+            <p>We partner with institutions, NGOs, and communities to deliver climate-focused events.</p>
         </div>
-
+        <div class="cta-band-actions">
+            <a class="btn btn-invert" href="/contact">Contact us</a>
+            <a class="btn btn-line-invert" href="/programs">View programs</a>
+        </div>
     </div>
-
 </section>
 
 @endsection

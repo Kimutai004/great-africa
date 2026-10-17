@@ -2,65 +2,47 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('pages.home');
-});
-
-Route::get('/about', function () {
-    return view('pages.about');
-});
-
-Route::get('/programs', function () {
-    return view('pages.programs');
-});
-
-Route::get('/impact', function () {
-    return view('pages.impact');
-});
-
 use App\Http\Controllers\Public\BlogPageController;
 use App\Http\Controllers\Public\ContactController;
 use App\Http\Controllers\Public\EventsPageController;
+use App\Http\Controllers\Public\HomeController;
+use App\Http\Controllers\Public\NewsletterController;
 use App\Http\Controllers\Public\VolunteerController;
 
-Route::get('/events', [EventsPageController::class, 'index']);
-Route::get('/blog', [BlogPageController::class, 'index']);
-Route::get('/blog/{post}', [BlogPageController::class, 'show']);
+/* ---------- Public site ---------- */
 
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/contact', function () {
-    return view('pages.contact');
-});
+Route::view('/about', 'pages.about')->name('about');
+Route::view('/programs', 'pages.programs')->name('programs');
+Route::view('/impact', 'pages.impact')->name('impact');
+
+Route::get('/events', [EventsPageController::class, 'index'])->name('events');
+Route::get('/blog', [BlogPageController::class, 'index'])->name('blog');
+Route::get('/blog/{post}', [BlogPageController::class, 'show'])->name('blog.show');
+
+Route::view('/contact', 'pages.contact')->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
-Route::get('/get-involved', function () {
-    return view('pages.get-involved');
-});
+Route::view('/get-involved', 'pages.get-involved')->name('get-involved');
 Route::post('/get-involved', [VolunteerController::class, 'store'])->name('get-involved.store');
 
-Route::get('/donate', function () {
-    return view('pages.donate');
-});
+Route::view('/donate', 'pages.donate')->name('donate');
+
+Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
+
+Route::view('/privacy', 'pages.privacy')->name('privacy');
+Route::view('/terms', 'pages.terms')->name('terms');
 
 Route::fallback(function () {
     return response()->view('pages.404', [], 404);
 });
 
+/* ---------- Admin ---------- */
+
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 
-// Admin
 Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
 
 Route::get('/admin/login', [AdminAuthController::class, 'showLogin'])->name('admin.login');
@@ -84,4 +66,8 @@ Route::delete('/admin/contact-messages/{contactMessage}', [\App\Http\Controllers
 // Volunteer requests (list + delete)
 Route::get('/admin/volunteer-requests', [\App\Http\Controllers\Admin\VolunteerRequestsController::class, 'index'])->name('admin.volunteer-requests.index');
 Route::delete('/admin/volunteer-requests/{volunteerRequest}', [\App\Http\Controllers\Admin\VolunteerRequestsController::class, 'destroy'])->name('admin.volunteer-requests.destroy');
+
+// Newsletter subscribers (list + delete)
+Route::get('/admin/newsletter', [\App\Http\Controllers\Admin\NewsletterSubscribersController::class, 'index'])->name('admin.newsletter.index');
+Route::delete('/admin/newsletter/{newsletterSubscriber}', [\App\Http\Controllers\Admin\NewsletterSubscribersController::class, 'destroy'])->name('admin.newsletter.destroy');
 

@@ -58,6 +58,7 @@
                 <a href="/admin/posts" class="{{ request()->is('admin/posts*') ? 'active' : '' }}">News / Blog</a>
                 <a href="/admin/contact-messages" class="{{ request()->is('admin/contact-messages*') ? 'active' : '' }}">Contact Messages</a>
                 <a href="/admin/volunteer-requests" class="{{ request()->is('admin/volunteer-requests*') ? 'active' : '' }}">Get Involved</a>
+                <a href="/admin/newsletter" class="{{ request()->is('admin/newsletter*') ? 'active' : '' }}">Newsletter</a>
             </nav>
 
             <div class="admin-bottom">
@@ -106,26 +107,26 @@
 
     </div>
 <script>
-document.addEventListener('click', function(e) {
-  if (e.target && e.target.matches('.view-message')) {
-    const message = e.target.dataset.message || '';
-    const modal = document.getElementById('message-modal');
-    const content = document.getElementById('modal-message-content');
-    content.textContent = message;
-    if (e.target.dataset.deleteUrl) {
-  const deleteForm = document.getElementById('modal-delete-form');
-  deleteForm.action = e.target.dataset.deleteUrl;
-  deleteForm.style.display = 'inline-block';
-} else {
-  const deleteForm = document.getElementById('modal-delete-form');
-  deleteForm.style.display = 'none';
-}
-modal.style.display = 'flex';
-  }
-  if (e.target && e.target.matches('.modal-close')) {
-    document.getElementById('message-modal').style.display = 'none';
-  }
-});
+    document.addEventListener('click', function(e) {
+    if (e.target && e.target.matches('.view-message')) {
+        const message = e.target.dataset.message || '';
+        const modal = document.getElementById('message-modal');
+        const content = document.getElementById('modal-message-content');
+        content.textContent = message;
+        if (e.target.dataset.deleteUrl) {
+    const deleteForm = document.getElementById('modal-delete-form');
+    deleteForm.action = e.target.dataset.deleteUrl;
+    deleteForm.style.display = 'inline-block';
+    } else {
+    const deleteForm = document.getElementById('modal-delete-form');
+    deleteForm.style.display = 'none';
+    }
+    modal.style.display = 'flex';
+    }
+    if (e.target && e.target.matches('.modal-close')) {
+        document.getElementById('message-modal').style.display = 'none';
+    }
+    });
 </script>
 </body>
 </html>

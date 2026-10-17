@@ -1,15 +1,18 @@
 @extends('layouts.app')
 
-@section('title','Page Not Found | Great Africa')
+@section('title', 'Page Not Found — Great Africa')
 
 @section('content')
-<section class="section" aria-labelledby="notfound-title">
-  <h1 class="section-title" id="notfound-title">Page not found</h1>
-  <p class="section-lead" style="max-width:70ch;">The page you’re looking for doesn’t exist (yet). Use the navigation to continue.</p>
-  <div class="form-actions" style="margin-top:16px;">
-    <a class="btn btn-primary" href="/">Go to Home</a>
-    <a class="btn btn-secondary" href="/contact">Contact us</a>
-  </div>
+<section class="container notfound" aria-labelledby="notfound-title">
+    <p class="notfound-code" aria-hidden="true">404</p>
+    <h1 class="h1" id="notfound-title" style="margin-top:1.5rem;">This page went off the map.</h1>
+    <p class="lead">
+        The page you are looking for does not exist — or moved without telling us.
+    </p>
+    <div class="hero-ctas" style="justify-content:center;">
+        <a class="btn btn-green" href="/">Back to home</a>
+        <a class="btn" href="/contact">Contact us</a>
+    </div>
 </section>
 @endsection
 

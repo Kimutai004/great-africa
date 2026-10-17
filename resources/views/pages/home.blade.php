@@ -1,216 +1,386 @@
 @extends('layouts.app')
 
-@section('title','Great Africa NGO | Building Climate-Smart Agriculture in Kenya & Africa')
+@section('title', 'Great Africa — Climate Resilience & Sustainable Agriculture in Kenya & Africa')
+@section('meta_description', 'Great Africa empowers communities through climate-smart agriculture, environmental conservation, and youth & women-led innovation across Kenya and Africa.')
 
 @section('content')
+
+<!-- ================= HERO ================= -->
 <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-wrap">
+    <div class="hero-media" aria-hidden="true">
+        <img src="{{ asset('images/hero-1.jpg') }}" alt="" fetchpriority="high" />
+    </div>
 
-        <!-- Background Slideshow -->
-        <div class="hero-slideshow" aria-hidden="true">
-            <img class="hero-slide is-active" src="/images/hero 1.jpg" alt="" />
-            <img class="hero-slide" src="/images/Hero 2.jpg" alt="" />
-            <div class="hero-slideshow-overlay"></div>
+    <div class="container hero-inner">
+        <div class="hero-copy">
+            <p class="eyebrow"><span class="num">GREAT</span> Africa — Est. Kenya</p>
+
+            <h1 class="display" id="hero-title">
+                Generational resilience, grown from the ground up.
+            </h1>
+
+            <p class="hero-lead">
+                We equip farming communities with climate-smart agriculture,
+                restore the landscapes they depend on, and back the youth and
+                women leading the work — so livelihoods outlast the climate
+                that is changing around them.
+            </p>
+
+            <div class="hero-ctas">
+                <a class="btn btn-invert" href="/donate">Support the work</a>
+                <a class="btn btn-line-invert" href="/programs">Explore programs</a>
+            </div>
+
+            <div class="hero-note">
+                <span>Community-led</span>
+                <span>Climate-focused</span>
+                <span>Youth &amp; women at the centre</span>
+            </div>
         </div>
+    </div>
 
-        @include('partials.hero-gradient')
-
-        <div class="hero-grid">
-
-            <!-- LEFT CONTENT -->
-            <div class="hero-content">
-
-                <div class="kicker">
-                    <span class="dot"></span>
-                    Climate-smart agriculture • Youth & women empowerment
+    <div class="container">
+        <div class="stat-bar" role="list" aria-label="Impact at a glance">
+            @foreach (config('site.stats') as $stat)
+                <div class="stat-cell" role="listitem">
+                    <div class="stat-num">{{ $stat['value'] }}</div>
+                    <div class="stat-label">{{ $stat['label'] }}</div>
                 </div>
+            @endforeach
+        </div>
+    </div>
+</section>
 
-                <h1 id="hero-title">
-                    Building Climate Resilience and Sustainable Livelihoods Across Africa
-                </h1>
+<!-- ================= 01 — MISSION ================= -->
+<section class="section" aria-labelledby="mission-title">
+    <div class="container">
 
-                <p class="hero-lead">
-                    Great Africa (Generational Resilience Environment Agriculture
-                    Transdevelopment Africa) empowers communities through
-                    climate-smart agriculture, environmental conservation,
-                    food security initiatives, and youth-led innovation that
-                    strengthens livelihoods for generations.
+        <div class="split split-wide">
+
+            <div class="reveal">
+                <p class="eyebrow"><span class="num">01</span> Who we are</p>
+                <h2 class="h2" id="mission-title" style="margin:1.1rem 0 1.25rem;">
+                    An African-led response to a generational challenge.
+                </h2>
+                <p class="lead">
+                    Great Africa — Generational Resilience Environment Agriculture
+                    Transdevelopment Africa — works with communities, county
+                    governments, and development partners to make smallholder
+                    farming resilient, landscapes restorable, and opportunity
+                    accessible to the young people and women who live there.
                 </p>
-
-                <div class="hero-actions" role="group" aria-label="Primary calls to action">
-                    <a class="btn btn-primary" href="/donate">
-                        Support Our Mission
-                    </a>
-
-                    <a class="btn btn-secondary" href="/get-involved">
-                        Get Involved
-                    </a>
-
-                    <a class="btn btn-ghost hero-btn-light" href="/programs">
-                        Explore Programs
-                    </a>
-                </div>
-
-                <div class="hero-proof">
-                    <span>🌱 Community-led</span>
-                    <span>🌍 Climate-focused</span>
-                    <span>👩 Women & Youth Empowerment</span>
-                </div>
-
+                <p style="margin-top:1.25rem;">
+                    <a class="link-arrow" href="/about">Read our story →</a>
+                </p>
             </div>
 
-            <!-- RIGHT IMPACT CARD -->
-            <div class="impact-card">
-
-                <div class="impact-header">
-                    Our Impact
-                </div>
-
-                <div class="impact-stats">
-                    <div class="impact-item">
-                        <strong>10,000+</strong>
-                        <span>Farmers Reached</span>
-                    </div>
-
-                    <div class="impact-item">
-                        <strong>25+</strong>
-                        <span>Communities Served</span>
-                    </div>
-
-                    <div class="impact-item">
-                        <strong>120+</strong>
-                        <span>Youth Groups Engaged</span>
-                    </div>
-
-                    <div class="impact-item">
-                        <strong>50+</strong>
-                        <span>Climate Projects</span>
-                    </div>
-
-                </div>
-
-                <div class="impact-footer">
-                    Together we are creating sustainable communities and protecting natural resources for future generations.
-                </div>
-
+            <div class="reveal">
+                <ul class="feature-list">
+                    <li data-index="A1">Climate-smart agriculture training for smallholder farmers</li>
+                    <li data-index="A2">Watershed protection and ecosystem restoration</li>
+                    <li data-index="A3">Youth skills, mentorship, and enterprise pathways</li>
+                    <li data-index="A4">Women-led groups building sustainable livelihoods</li>
+                    <li data-index="A5">Community food-security and seed-security programs</li>
+                </ul>
             </div>
 
         </div>
+
     </div>
 </section>
 
-<section class="section" aria-labelledby="programs-overview">
-  <div class="split">
-    <div>
-      <h2 class="section-title" id="programs-overview">Key programs / projects</h2>
-      <p class="section-lead">
-        We focus on sustainable agriculture and natural resource management—paired with youth and women empowerment—to
-        improve livelihoods and protect the environment.
-      </p>
-    </div>
-  </div>
+<!-- ================= 02 — PROGRAMS ================= -->
+<section class="section section-alt" aria-labelledby="programs-title">
+    <div class="container">
 
-  <div class="grid-3" style="margin-top:18px;">
-    <div class="card">
-      <h3>Climate-Smart Agriculture</h3>
-      <p>Training and support for resilient farming practices that help communities adapt to changing weather.</p>
-    </div>
-    <div class="card">
-      <h3>Environmental Conservation</h3>
-      <p>Community-based approaches to protect landscapes, restore ecosystems, and manage natural resources sustainably.</p>
-    </div>
-    <div class="card">
-      <h3>Youth & Women Empowerment</h3>
-      <p>Mentorship, leadership, and skills that expand economic opportunities and strengthen community well-being.</p>
-    </div>
-    <div class="card">
-      <h3>Soil health & sustainable farming</h3>
-      <p>Training and support for resilient farming practices that help communities adapt to changing weather.</p>
-    </div>
-    <div class="card">
-      <h3>Water & watershed stewardship</h3>
-      <p>Community-based approaches to protect landscapes, restore ecosystems, and manage natural resources sustainably.</p>
-    </div>
-    <div class="card">
-      <h3>Food security & resilience</h3>
-      <p>Mentorship, leadership, and skills that expand economic opportunities and strengthen community well-being.</p>
-    </div>
-  </div>
-
-  <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
-    <a class="btn btn-secondary" href="/programs">View all programs</a>
-    <a class="btn btn-primary" href="/impact">See impact stories</a>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="impact-highlights">
-  <h2 class="section-title" id="impact-highlights">Impact you can believe in</h2>
-  <p class="section-lead">These are sample impact highlights—replace with your real numbers, locations, and program photos.</p>
-
-  <div class="grid-3">
-    <div class="card">
-      <h3>Improved farm resilience</h3>
-      <p>Communities adopt climate-smart practices to better manage drought risk and improve yields.</p>
-    </div>
-    <div class="card">
-      <h3>Stronger community systems</h3>
-      <p>Local groups coordinate training, mentorship, and resource management through structured programs.</p>
-    </div>
-    <div class="card">
-      <h3>More opportunities for youth</h3>
-      <p>Skills development supports pathways into agriculture innovation, conservation work, and leadership.</p>
-    </div>
-  </div>
-
-  <div style="margin-top:18px;">
-    <a class="btn btn-primary" href="/impact">Read stories from the field</a>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="get-involved">
-  <div class="split">
-    <div>
-      <h2 class="section-title" id="get-involved">Join the movement for a greener future</h2>
-      <p class="section-lead">
-        Whether you donate, volunteer, or partner, your action helps communities build long-term resilience for generations to come.
-      </p>
-    </div>
-    <div>
-      <div class="card">
-        <h3 style="margin-bottom:6px;">Fast ways to get involved</h3>
-        <div class="form-actions" style="margin-top:10px;">
-          <a class="btn btn-primary" href="/donate">Donate</a>
-          <a class="btn btn-secondary" href="/get-involved">Volunteer</a>
-          <a class="btn btn-ghost" href="/contact">Contact us</a>
+        <div class="section-head reveal">
+            <div class="section-head-copy">
+                <p class="eyebrow"><span class="num">02</span> What we do</p>
+                <h2 class="h2" id="programs-title">Programs built around how communities actually live.</h2>
+                <p class="lead">
+                    Six connected program areas — because soil, water, food,
+                    income, and opportunity are never separate problems.
+                </p>
+            </div>
+            <a class="link-arrow" href="/programs">All programs →</a>
         </div>
-        <p class="small" style="margin-top:10px;">
-          Your official donation and contact details should be added to make submissions go to your team.
-        </p>
-      </div>
+
+        <div class="grid-3 reveal">
+
+            <article class="card">
+                <span class="card-num">P—01</span>
+                <h3>Soil Health &amp; Regenerative Farming</h3>
+                <p>
+                    Composting, soil conservation, cover cropping, and improved
+                    farming systems that rebuild fertility and cut climate risk.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="card-num">P—02</span>
+                <h3>Water Stewardship &amp; Irrigation</h3>
+                <p>
+                    Community water management, watershed protection, and
+                    drought-resilience solutions for arid and semi-arid lands.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="card-num">P—03</span>
+                <h3>Natural Resource Conservation</h3>
+                <p>
+                    Ecosystem restoration, biodiversity protection, and
+                    sustainable land management led by the communities who
+                    depend on them.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="card-num">P—04</span>
+                <h3>Youth Empowerment</h3>
+                <p>
+                    Practical skills, mentorship, and enterprise pathways in
+                    climate-smart agriculture for young people.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="card-num">P—05</span>
+                <h3>Women's Livelihoods</h3>
+                <p>
+                    Tools, training, and market access for women-led groups
+                    building sustainable household income.
+                </p>
+            </article>
+
+            <article class="card">
+                <span class="card-num">P—06</span>
+                <h3>Food Security &amp; Seed Systems</h3>
+                <p>
+                    Household resilience through local seed banks, diversified
+                    crops, and farmer-to-farmer learning.
+                </p>
+            </article>
+
+        </div>
+
     </div>
-  </div>
 </section>
 
-<script>
-  (function () {
-    const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
+<!-- ================= 03 — IMPACT ================= -->
+<section class="section section-dark" aria-labelledby="impact-title">
+    <div class="container">
 
-    const slides = document.querySelectorAll('.hero-slide');
-    if (!slides || slides.length < 2) return;
+        <div class="split split-narrow">
 
-    let idx = 0;
-    const show = (nextIdx) => {
-      slides[idx].classList.remove('is-active');
-      idx = nextIdx;
-      slides[idx].classList.add('is-active');
-    };
+            <div class="reveal">
+                <p class="eyebrow"><span class="num">03</span> Evidence, not promises</p>
+                <h2 class="h2" id="impact-title" style="margin:1.1rem 0 1.25rem;">
+                    Impact you can trace to a field, a family, a season.
+                </h2>
+                <p class="lead">
+                    We measure what changes: yields, household income, tree
+                    survival, water access, and the number of farmers —
+                    especially women and youth — leading practices in their
+                    own communities.
+                </p>
+                <div class="hero-ctas" style="margin-top:2rem;">
+                    <a class="btn btn-invert" href="/impact">Impact stories</a>
+                </div>
+            </div>
 
-    setInterval(() => {
-      const next = (idx + 1) % slides.length;
-      show(next);
-    }, 6500);
-  })();
-</script>
+            <div class="reveal">
+                <figure class="quote-block">
+                    <blockquote>
+                        “The training did not just change how we farm.
+                        It changed what we believe our land can do.”
+                    </blockquote>
+                    <figcaption>Smallholder farmer · Nakuru County</figcaption>
+                </figure>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= 04 — EVENTS ================= -->
+<section class="section" aria-labelledby="events-title">
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div class="section-head-copy">
+                <p class="eyebrow"><span class="num">04</span> In the field</p>
+                <h2 class="h2" id="events-title">Upcoming events &amp; field days.</h2>
+            </div>
+            <a class="link-arrow" href="/events">All events →</a>
+        </div>
+
+        @if ($events->isEmpty())
+            <div class="empty-state reveal">
+                <h3>No published events yet.</h3>
+                <p>Field days, training sessions, and community forums will be listed here. Check back soon.</p>
+                <a class="btn" href="/contact">Propose an event</a>
+            </div>
+        @else
+            <div class="event-list reveal">
+                @foreach ($events as $event)
+                    <article class="event-row">
+                        <div class="event-date">
+                            @if ($event->start_date)
+                                <span class="day">{{ $event->start_date->format('d') }}</span>
+                                <span class="mon">{{ $event->start_date->format('M Y') }}</span>
+                            @else
+                                <span class="mon">TBA</span>
+                            @endif
+                        </div>
+
+                        <div class="event-body">
+                            <h3>{{ $event->title }}</h3>
+                            @if ($event->description)
+                                <p>{{ \Illuminate\Support\Str::limit($event->description, 160) }}</p>
+                            @endif
+                            <p class="event-meta">{{ $event->location ?? 'Location TBA' }}</p>
+                        </div>
+
+                        @if ($event->link_url)
+                            <a class="link-arrow" href="{{ $event->link_url }}" target="_blank" rel="noreferrer">
+                                {{ $event->link_text ?? 'Register →' }}
+                            </a>
+                        @else
+                            <a class="link-arrow" href="/contact">Register interest →</a>
+                        @endif
+                    </article>
+                @endforeach
+            </div>
+        @endif
+
+    </div>
+</section>
+
+<!-- ================= 05 — NEWS ================= -->
+<section class="section section-alt" aria-labelledby="news-title">
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div class="section-head-copy">
+                <p class="eyebrow"><span class="num">05</span> News &amp; insights</p>
+                <h2 class="h2" id="news-title">Latest from Great Africa.</h2>
+            </div>
+            <a class="link-arrow" href="/blog">All news →</a>
+        </div>
+
+        @if ($posts->isEmpty())
+            <div class="empty-state reveal">
+                <h3>No published posts yet.</h3>
+                <p>Program updates, community stories, and field notes will appear here.</p>
+            </div>
+        @else
+            <div class="grid-3 reveal">
+                @foreach ($posts as $post)
+                    <article class="media-card">
+                        @if ($post->image_path)
+                            <a class="media-frame" href="/blog/{{ $post->id }}" tabindex="-1" aria-hidden="true">
+                                <img src="{{ $post->image_path }}" alt="" loading="lazy" />
+                            </a>
+                        @else
+                            <a class="media-frame-placeholder" href="/blog/{{ $post->id }}" aria-hidden="true" tabindex="-1">Great Africa</a>
+                        @endif
+
+                        <div class="media-body">
+                            <div class="meta-row">
+                                <span>{{ $post->published_at ? $post->published_at->format('d M Y') : '' }}</span>
+                                <span>{{ $post->category ?? 'News' }}</span>
+                            </div>
+                            <h3><a href="/blog/{{ $post->id }}">{{ $post->title }}</a></h3>
+                            <p>{{ $post->excerpt ?: \Illuminate\Support\Str::limit(strip_tags($post->body ?? ''), 120) }}</p>
+                            <a class="link-arrow" href="/blog/{{ $post->id }}">Read article →</a>
+                        </div>
+                    </article>
+                @endforeach
+            </div>
+        @endif
+
+    </div>
+</section>
+
+
+<!-- ================= 06 — GET INVOLVED ================= -->
+<section class="section" aria-labelledby="involved-title">
+    <div class="container">
+
+        <div class="section-head reveal">
+            <div class="section-head-copy">
+                <p class="eyebrow"><span class="num">06</span> Take action</p>
+                <h2 class="h2" id="involved-title">Three ways to move this work forward.</h2>
+            </div>
+        </div>
+
+        <div class="grid-3 reveal">
+
+            <article class="card">
+                <span class="card-num">Give</span>
+                <h3>Fund the work</h3>
+                <p>
+                    Your donation puts training materials, seedlings, and tools
+                    directly into community hands.
+                </p>
+                <a class="link-arrow" href="/donate">Donate →</a>
+            </article>
+
+            <article class="card">
+                <span class="card-num">Serve</span>
+                <h3>Volunteer your skills</h3>
+                <p>
+                    From field training to mentoring youth groups, we match your
+                    time and skills to real community needs.
+                </p>
+                <a class="link-arrow" href="/get-involved">Volunteer →</a>
+            </article>
+
+            <article class="card">
+                <span class="card-num">Partner</span>
+                <h3>Build with us</h3>
+                <p>
+                    Corporates, foundations, and institutions: collaborate on
+                    programs aligned to climate and agriculture.
+                </p>
+                <a class="link-arrow" href="/contact">Partner with us →</a>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+<section class="section section-dark" aria-labelledby="newsletter-title">
+    <div class="container">
+
+        <div class="newsletter-band reveal" style="background:transparent; border-color:rgba(244,241,234,.18);">
+            <div>
+                <h2 id="newsletter-title" style="color:var(--paper);">Stay close to the field.</h2>
+                <p style="color:rgba(244,241,234,.65);">
+                    Field stories, event invitations, and program outcomes —
+                    a few times a year, no noise.
+                </p>
+                @if (session('newsletter_success'))
+                    <p class="alert" style="margin-top:1rem; border-color:var(--ochre); background:rgba(194,103,42,.12); color:var(--paper);">
+                        {{ session('newsletter_success') }}
+                    </p>
+                @endif
+            </div>
+
+            <form class="newsletter-form" action="{{ route('newsletter.store') }}" method="post" aria-label="Newsletter signup">
+                @csrf
+                <label for="newsletter-email" style="position:absolute; left:-9999px;">Email address</label>
+                <input id="newsletter-email" type="email" name="email" placeholder="Your email address" required />
+                <button class="btn btn-green" type="submit">Subscribe</button>
+            </form>
+
+        </div>
+
+    </div>
+</section>
+
 @endsection
-
