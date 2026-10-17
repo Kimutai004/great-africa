@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\AdminBaseController;
 use App\Models\VolunteerRequest;
+use Illuminate\Http\Request;
 
 class VolunteerRequestsController extends AdminBaseController
 {
@@ -17,6 +18,20 @@ class VolunteerRequestsController extends AdminBaseController
     {
         $volunteerRequest->delete();
         return redirect()->route('admin.volunteer-requests.index')->with('success', 'Request deleted.');
+    }
+
+    public function bulk(Request $request)
+    {
+        $data = $request->validate([
+            'selected' => ['nullable', 'array'],
+            'selected.*' => ['integer'],
+        ]);
+
+        if (! empty($data['selected'])) {
+            VolunteerRequest::whereIn('id', $data['selected'])->delete();
+        }
+
+        return redirect()->route('admin.volunteer-requests.index')->with('success', 'Bulk action applied.');
     }
 }
 

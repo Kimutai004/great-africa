@@ -36,10 +36,6 @@ Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsle
 Route::view('/privacy', 'pages.privacy')->name('privacy');
 Route::view('/terms', 'pages.terms')->name('terms');
 
-Route::fallback(function () {
-    return response()->view('pages.404', [], 404);
-});
-
 /* ---------- Admin ---------- */
 
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
@@ -55,11 +51,13 @@ Route::post('/logout', function () {
     return redirect('/admin/login');
 })->name('logout');
 
-// Events CRUD
-Route::resource('admin/events', \App\Http\Controllers\Admin\EventsController::class);
+// Events CRUD (names => admin.events.*)
+Route::post('/admin/events/bulk', [\App\Http\Controllers\Admin\EventsController::class, 'bulk'])->name('admin.events.bulk');
+Route::resource('admin/events', \App\Http\Controllers\Admin\EventsController::class)->names('admin.events')->except(['show']);
 
-// Posts CRUD
-Route::resource('admin/posts', \App\Http\Controllers\Admin\PostsController::class);
+// Posts CRUD (names => admin.posts.*)
+Route::post('/admin/posts/bulk', [\App\Http\Controllers\Admin\PostsController::class, 'bulk'])->name('admin.posts.bulk');
+Route::resource('admin/posts', \App\Http\Controllers\Admin\PostsController::class)->names('admin.posts')->except(['show']);
 
 // Contact messages (list + delete)
 Route::get('/admin/contact-messages', [\App\Http\Controllers\Admin\ContactMessagesController::class, 'index'])->name('admin.contact-messages.index');
@@ -77,4 +75,13 @@ Route::delete('/admin/donations/{donation}', [\App\Http\Controllers\Admin\Donati
 // Newsletter subscribers (list + delete)
 Route::get('/admin/newsletter', [\App\Http\Controllers\Admin\NewsletterSubscribersController::class, 'index'])->name('admin.newsletter.index');
 Route::delete('/admin/newsletter/{newsletterSubscriber}', [\App\Http\Controllers\Admin\NewsletterSubscribersController::class, 'destroy'])->name('admin.newsletter.destroy');
+
+// Bulk actions used by admin index views
+Route::post('/admin/contact-messages/bulk', [\App\Http\Controllers\Admin\ContactMessagesController::class, 'bulk'])->name('admin.contact-messages.bulk');
+Route::post('/admin/volunteer-requests/bulk', [\App\Http\Controllers\Admin\VolunteerRequestsController::class, 'bulk'])->name('admin.volunteer-requests.bulk');
+Route::post('/admin/newsletter/bulk', [\App\Http\Controllers\Admin\NewsletterSubscribersController::class, 'bulk'])->name('admin.newsletter.bulk');
+
+Route::fallback(function () {
+    return response()->view('pages.404', [], 404);
+});
 

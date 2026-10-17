@@ -48,7 +48,7 @@ class PostsController extends AdminBaseController
         }
 
         Post::create($data);
-        return redirect('/admin/posts')->with('success', 'Post created.');
+        return redirect()->route('admin.posts.index')->with('success', 'Post created.');
     }
 
 
@@ -85,14 +85,38 @@ class PostsController extends AdminBaseController
         }
 
         $post->update($data);
-        return redirect('/admin/posts')->with('success', 'Post updated.');
+        return redirect()->route('admin.posts.index')->with('success', 'Post updated.');
     }
 
 
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect('/admin/posts')->with('success', 'Post deleted.');
+        return redirect()->route('admin.posts.index')->with('success', 'Post deleted.');
+    }
+
+    public function bulk(Request $request)
+    {
+        $data = $request->validate([
+            'bulk_action' => ['nullable', 'in:publish,draft,delete'],
+            'selected' => ['nullable', 'array'],
+            'selected.*' => ['integer'],
+        ]);
+
+        $ids = $data['selected'] ?? [];
+        $action = $request->input('bulk_action');
+
+        if (! empty($ids) && $action) {
+            if ($action === 'delete') {
+                Post::whereIn('id', $ids)->delete();
+            } elseif (in_array($action, ['publish', 'draft'], true)) {
+                Post::whereIn('id', $ids)->update([
+                    'status' => $action === 'publish' ? 'published' : 'draft',
+                ]);
+            }
+        }
+
+        return redirect()->route('admin.posts.index')->with('success', 'Bulk action applied.');
     }
 
 }

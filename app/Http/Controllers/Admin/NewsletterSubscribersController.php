@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\AdminBaseController;
 use App\Models\NewsletterSubscriber;
+use Illuminate\Http\Request;
 
 class NewsletterSubscribersController extends AdminBaseController
 {
@@ -17,5 +18,19 @@ class NewsletterSubscribersController extends AdminBaseController
     {
         $newsletterSubscriber->delete();
         return redirect()->route('admin.newsletter.index')->with('success', 'Subscriber removed.');
+    }
+
+    public function bulk(Request $request)
+    {
+        $data = $request->validate([
+            'selected' => ['nullable', 'array'],
+            'selected.*' => ['integer'],
+        ]);
+
+        if (! empty($data['selected'])) {
+            NewsletterSubscriber::whereIn('id', $data['selected'])->delete();
+        }
+
+        return redirect()->route('admin.newsletter.index')->with('success', 'Bulk action applied.');
     }
 }
