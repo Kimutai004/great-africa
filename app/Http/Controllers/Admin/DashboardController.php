@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\AdminBaseController;
 use App\Models\ContactMessage;
+use App\Models\Donation;
 use App\Models\Event;
 use App\Models\Post;
 use App\Models\VolunteerRequest;
@@ -16,6 +17,8 @@ class DashboardController extends AdminBaseController
         $postsCount = Post::count();
         $messagesCount = ContactMessage::count();
         $requestsCount = VolunteerRequest::count();
+        $donationsCount = Donation::count();
+        $totalRaised = (float) Donation::where('status', 'confirmed')->sum('amount');
 
         $recentActivity = collect();
 
@@ -59,12 +62,22 @@ class DashboardController extends AdminBaseController
             ]);
         }
 
+        // Latest donation
+        $latestDonation = Donation::orderBy('created_at', 'desc')->first();
+        if ($latestDonation) {
+            $recentActivity->push([
+                'icon' => '&#10084;',
+                'title' => 'New donation pledge: KES ' . number_format($latestDonation->amount, 0) . ' from ' . e($latestDonation->name),
+                'meta' => $latestDonation->created_at->diffForHumans(),
+            ]);
+        }
+
         $recentActivity = $recentActivity->sortByDesc(function ($item) {
             // Re-sort by parsing meta back isn't trivial; keep insertion order reversed
             return 0;
         })->values()->take(5);
 
-        return view('admin.dashboard', compact('eventsCount', 'postsCount', 'messagesCount', 'requestsCount', 'recentActivity'));
+        return view('admin.dashboard', compact('eventsCount', 'postsCount', 'messagesCount', 'requestsCount', 'donationsCount', 'totalRaised', 'recentActivity'));
     }
 }
 

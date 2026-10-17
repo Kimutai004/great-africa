@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Public\BlogPageController;
 use App\Http\Controllers\Public\ContactController;
+use App\Http\Controllers\Public\DonationController;
 use App\Http\Controllers\Public\EventsPageController;
 use App\Http\Controllers\Public\HomeController;
 use App\Http\Controllers\Public\NewsletterController;
@@ -28,6 +29,7 @@ Route::view('/get-involved', 'pages.get-involved')->name('get-involved');
 Route::post('/get-involved', [VolunteerController::class, 'store'])->name('get-involved.store');
 
 Route::view('/donate', 'pages.donate')->name('donate');
+Route::post('/donate', [DonationController::class, 'store'])->name('donate.store');
 
 Route::post('/newsletter', [NewsletterController::class, 'store'])->name('newsletter.store');
 
@@ -66,6 +68,11 @@ Route::delete('/admin/contact-messages/{contactMessage}', [\App\Http\Controllers
 // Volunteer requests (list + delete)
 Route::get('/admin/volunteer-requests', [\App\Http\Controllers\Admin\VolunteerRequestsController::class, 'index'])->name('admin.volunteer-requests.index');
 Route::delete('/admin/volunteer-requests/{volunteerRequest}', [\App\Http\Controllers\Admin\VolunteerRequestsController::class, 'destroy'])->name('admin.volunteer-requests.destroy');
+
+// Donations (list + status + delete)
+Route::get('/admin/donations', [\App\Http\Controllers\Admin\DonationsController::class, 'index'])->name('admin.donations.index');
+Route::patch('/admin/donations/{donation}/status', [\App\Http\Controllers\Admin\DonationsController::class, 'updateStatus'])->name('admin.donations.status');
+Route::delete('/admin/donations/{donation}', [\App\Http\Controllers\Admin\DonationsController::class, 'destroy'])->name('admin.donations.destroy');
 
 // Newsletter subscribers (list + delete)
 Route::get('/admin/newsletter', [\App\Http\Controllers\Admin\NewsletterSubscribersController::class, 'index'])->name('admin.newsletter.index');

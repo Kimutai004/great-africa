@@ -44,6 +44,13 @@
             </div>
             <div class="admin-stat-icon">&#128105;</div>
         </div>
+        <div class="admin-stat-card">
+            <div class="admin-stat-info">
+                <div class="admin-stat-label">Donations (KES)</div>
+                <div class="admin-stat-value">{{ number_format($totalRaised ?? 0, 0) }}</div>
+            </div>
+            <div class="admin-stat-icon">&#10084;</div>
+        </div>
     </div>
 
     <!-- Quick Actions + Recent Activity -->
@@ -61,6 +68,7 @@
                     <a href="/admin/contact-messages" class="admin-quick-item">View Contact Messages</a>
                     <a href="/admin/volunteer-requests" class="admin-quick-item">View Volunteer Requests</a>
                     <a href="/admin/newsletter" class="admin-quick-item">View Newsletter</a>
+                    <a href="/admin/donations" class="admin-quick-item">View Donations</a>
                 </div>
             </div>
         </div>

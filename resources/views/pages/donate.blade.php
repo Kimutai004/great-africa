@@ -104,7 +104,18 @@
                     your receipt and confirm allocation.
                 </p>
 
-                <form class="form" action="#" method="post" onsubmit="return false;" aria-label="Donation pledge form" style="margin-top:1rem;">
+                <form class="form" action="{{ route('donate.store') }}" method="post" aria-label="Donation pledge form" style="margin-top:1rem;">
+                    @csrf
+                    @if (session('success'))
+                        <p class="small" style="color:green; font-weight:600;">{{ session('success') }}</p>
+                    @endif
+                    @if ($errors->any())
+                        <ul class="small" style="color:#b91c1c;">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    @endif
                     <div class="field">
                         <label for="donate-name">Full name</label>
                         <input id="donate-name" name="name" type="text" required autocomplete="name" />
