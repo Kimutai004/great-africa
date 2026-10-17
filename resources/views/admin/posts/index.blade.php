@@ -93,4 +93,5 @@
         <p style="margin-top:6px;">Create your first post to get started.</p>
         <a href="/admin/posts/create" class="btn-save" style="margin-top:16px; display:inline-block;">+ Create Post</a>
     </div>
+@endif
 @endsection

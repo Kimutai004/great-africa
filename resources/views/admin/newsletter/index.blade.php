@@ -68,4 +68,5 @@
         <h3>No subscribers yet</h3>
         <p style="margin-top:6px;">Newsletter subscribers will appear here.</p>
     </div>
+@endif
 @endsection

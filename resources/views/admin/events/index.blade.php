@@ -93,4 +93,5 @@
         <p style="margin-top:6px;">Create your first event to get started.</p>
         <a href="/admin/events/create" class="btn-save" style="margin-top:16px; display:inline-block;">+ Create Event</a>
     </div>
+@endif
 @endsection

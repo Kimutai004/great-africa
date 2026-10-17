@@ -80,4 +80,5 @@
         <h3>No contact messages</h3>
         <p style="margin-top:6px;">Inbox submissions will appear here.</p>
     </div>
+@endif
 @endsection

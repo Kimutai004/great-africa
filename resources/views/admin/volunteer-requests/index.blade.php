@@ -82,4 +82,5 @@
         <h3>No volunteer requests</h3>
         <p style="margin-top:6px;">Volunteer submissions will appear here.</p>
     </div>
+@endif
 @endsection
